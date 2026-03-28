@@ -29,6 +29,7 @@ export default function ChatBot({ pageContext = 'home' }: ChatBotProps) {
   }, [messages, loading])
 
   async function saveToSupabase(msgs: Message[]) {
+    if (!supabase) return
     try {
       await supabase.from('chat_sessions').upsert({
         session_id: sessionId,
