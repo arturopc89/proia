@@ -23,3 +23,8 @@ next-env.d.ts
 .DS_Store
 *.pem
 /coverage
+
+# local dev scripts with secrets
+dev.sh
+.env
+.env.test

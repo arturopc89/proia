@@ -1,10 +1,7 @@
 import Anthropic from '@anthropic-ai/sdk'
 import { NextRequest, NextResponse } from 'next/server'
 
-export const runtime = 'edge'
 export const maxDuration = 30
-
-const client = new Anthropic({ apiKey: process.env.ANTHROPIC_API_KEY })
 
 const SYSTEM_PROMPT = `Sos el asesor inmobiliario IA de ProIA, la plataforma PropTech líder de Paraguay.
 Respondés en español rioplatense, de forma concisa, experta y orientada a cerrar.
@@ -47,6 +44,7 @@ INSTRUCCIONES:
 
 export async function POST(req: NextRequest) {
   try {
+    const client = new Anthropic({ apiKey: process.env.ANTHROPIC_API_KEY })
     const { messages, pageContext } = await req.json()
 
     const systemPrompt = pageContext === 'express'
