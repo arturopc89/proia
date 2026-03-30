@@ -1,5 +1,5 @@
 'use client'
-import { useEffect, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import Link from 'next/link'
 import dynamic from 'next/dynamic'
 
@@ -9,6 +9,8 @@ export default function Home() {
   const [dashTab, setDashTab] = useState('portfolio')
   const [featTab, setFeatTab] = useState('ia-pred')
   const [showBubble, setShowBubble] = useState(true)
+  const [muted, setMuted] = useState(true)
+  const videoRef = useRef<HTMLVideoElement>(null)
 
   // Loader
   useEffect(() => {
@@ -45,10 +47,13 @@ export default function Home() {
     return () => els.forEach(el => { el.removeEventListener('mouseenter', enter); el.removeEventListener('mouseleave', leave) })
   })
 
-  // Auto-close bubble after 8s
+  // Bubble se cierra cuando termina el video
   useEffect(() => {
-    const t = setTimeout(() => setShowBubble(false), 8000)
-    return () => clearTimeout(t)
+    const vid = videoRef.current
+    if (!vid) return
+    const onEnd = () => setShowBubble(false)
+    vid.addEventListener('ended', onEnd)
+    return () => vid.removeEventListener('ended', onEnd)
   }, [])
 
   function openChat() {
@@ -149,16 +154,16 @@ export default function Home() {
               <div className="valentina-ring" style={{ width: '380px', height: '380px', border: '1px solid rgba(45,91,227,.07)' }} />
 
               <video
+                ref={videoRef}
                 id="valentina-video"
                 autoPlay
-                muted
-                loop
+                muted={muted}
                 playsInline
                 style={{
                   position: 'relative',
                   zIndex: 1,
                   height: '88vh',
-                  maxHeight: '700px',
+                  maxHeight: '720px',
                   width: 'auto',
                   objectFit: 'contain',
                   mixBlendMode: 'screen',
@@ -169,7 +174,19 @@ export default function Home() {
                 <source src="/valentina.mp4" type="video/mp4" />
               </video>
 
-              {/* Bubble bienvenida */}
+              {/* Botón de sonido */}
+              <button
+                className="valentina-sound"
+                onClick={() => {
+                  setMuted(m => !m)
+                  videoRef.current?.play()
+                }}
+                title={muted ? 'Activar audio' : 'Silenciar'}
+              >
+                {muted ? '🔇' : '🔊'}
+              </button>
+
+              {/* Bubble al lado de su boca */}
               {showBubble && (
                 <div className="valentina-bubble">
                   <p>"Hola! Soy <strong>Valentina</strong>, tu asesora de ProIA. ¿Te muestro las propiedades disponibles hoy?"</p>
