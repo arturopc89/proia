@@ -168,23 +168,91 @@ h3{font-size:22px;font-weight:800;letter-spacing:-.5px;color:var(--blue-950)}
 .vpb-price{font-size:12px;color:var(--green);font-weight:600}
 @keyframes badge-float{0%,100%{transform:translateY(0)}50%{transform:translateY(-6px)}}
 .valentina-prop-badge{animation:fadeUp .6s ease 2.2s both,badge-float 3s ease-in-out 3s infinite}
-@media(max-width:900px){
-  .hero-grid{grid-template-columns:1fr;padding-top:20px}
-  .hero-left{padding-bottom:20px}
-  .hero-right{height:60vh;order:-1}
-  #valentina-video{height:60vh;max-height:500px}
-  /* Mobile: bubble centrada arriba del video */
+@media(max-width:768px){
+  /* Hero: video arriba compacto, texto abajo */
+  #hero-master{min-height:auto;padding:66px 0 0}
+  .hero-grid{
+    grid-template-columns:1fr;
+    padding-top:0;
+    min-height:auto;
+    gap:0;
+    align-items:flex-start;
+  }
+
+  /* VIDEO: columna derecha va primero (order:-1), más chico */
+  .hero-right{
+    order:-1;
+    height:46vh;
+    max-height:340px;
+    overflow:hidden;
+  }
+  #valentina-video{
+    height:46vh;
+    max-height:340px;
+  }
+
+  /* Bubble: esquina izquierda dentro del video, compacta */
   .valentina-bubble{
-    top:-10px;
-    right:50%;
-    transform:translateX(50%);
-    max-width:calc(100vw - 48px);
-    border-radius:16px;
-    border-bottom-left-radius:16px;
+    top:12px;
+    left:12px;
+    right:auto;
+    max-width:190px;
+    padding:10px 12px;
+    border-radius:14px;
+    border-bottom-left-radius:3px;
+    transform:none;
   }
   .valentina-bubble::before,.valentina-bubble::after{display:none}
-  .valentina-prop-badge{right:8px;bottom:8px}
-  .valentina-sound{bottom:auto;top:10px;left:10px}
+  .valentina-bubble p{font-size:11px;margin-bottom:8px;line-height:1.5}
+  .vb-yes,.vb-no{padding:5px 10px;font-size:11px}
+
+  /* Badge propiedad: esquina inferior derecha, más chico */
+  .valentina-prop-badge{
+    right:8px;
+    bottom:8px;
+    padding:8px 10px;
+    border-radius:10px;
+  }
+  .vpb-inner{gap:7px}
+  .vpb-icon{width:28px;height:28px;font-size:14px;border-radius:7px}
+  .vpb-name{font-size:11px}
+  .vpb-price{font-size:10px}
+
+  /* Botón de sonido */
+  .valentina-sound{top:8px;right:8px;left:auto;bottom:auto;width:32px;height:32px;font-size:14px}
+
+  /* Ocultar anillos decorativos en mobile */
+  .valentina-ring{display:none}
+
+  /* Texto: izquierda → centrado, más compacto */
+  .hero-left{
+    order:1;
+    padding:20px 20px 32px;
+    align-items:flex-start;
+  }
+  .hero-left h1{font-size:42px;letter-spacing:-1.5px;text-align:left}
+  .hero-left .hero-sub{font-size:14px;margin-top:12px;max-width:100%}
+  .hero-badge{font-size:11px;padding:5px 12px}
+
+  /* CTAs: dos por fila */
+  .hero-ctas{
+    flex-wrap:wrap;
+    gap:8px;
+    margin-top:16px;
+  }
+  .hero-ctas .btn{padding:10px 16px;font-size:13px;flex:1;min-width:140px;justify-content:center;text-align:center}
+
+  /* Stack: más pequeño */
+  .hero-tech{margin-top:14px;gap:8px}
+  .tech-pill{font-size:11px;padding:3px 8px}
+
+  /* Stats: más compactas */
+  .hero-stats-row{
+    gap:12px;
+    margin-top:20px;
+  }
+  .hero-stat-val{font-size:22px}
+  .hero-stat-lbl{font-size:10px}
 }
 .hero-badge{display:inline-flex;align-items:center;gap:8px;background:var(--blue-50);border:1px solid var(--blue-100);color:var(--blue-600);border-radius:100px;padding:5px 14px;font-size:12px;font-weight:700;margin-bottom:24px;animation:fadeUp .6s ease .2s both}
 .badge-dot{width:6px;height:6px;background:var(--blue-500);border-radius:50%;animation:pD 2s infinite}
@@ -718,7 +786,7 @@ footer{background:var(--blue-950);padding:44px 0 28px;border-top:1px solid rgba(
   .mod-grid,.benefits-grid,.testimonial-grid,.pricing-cards,.process-steps{grid-template-columns:1fr}
   .kpi-row,.iav-grid,.g-grid,.ft-grid,.gl-grid{grid-template-columns:1fr 1fr}
   .phases,.ft-top{grid-template-columns:1fr 1fr}
-  #hero-master{padding:110px 0 60px}
+  /* hero ya manejado en @media(max-width:768px) */
   .pub-banner{flex-direction:column;text-align:center}
   .pub-banner-left{flex-direction:column}
   .pub-banner-right{flex-direction:column;width:100%}
