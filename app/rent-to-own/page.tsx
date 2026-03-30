@@ -7,6 +7,11 @@ const ChatBot = dynamic(() => import('@/components/ChatBot'), { ssr: false })
 
 export default function RentToOwn() {
   useEffect(() => {
+    document.body.style.cursor = 'default'
+    return () => { document.body.style.cursor = '' }
+  }, [])
+
+  useEffect(() => {
     const obs = new IntersectionObserver(entries => {
       entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('vis') })
     }, { threshold: 0.06 })
