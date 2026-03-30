@@ -111,7 +111,7 @@ export default function Home() {
       <section id="hero-master">
         <div className="h-orb h-orb-1" />
         <div className="h-orb h-orb-2" />
-        <div className="box" style={{ width: '100%', position: 'relative', zIndex: 2 }}>
+        <div className="box" style={{ width: '100%' }}>
           <div className="hero-grid">
 
             {/* COLUMNA IZQUIERDA */}
@@ -154,6 +154,17 @@ export default function Home() {
                 muted
                 loop
                 playsInline
+                style={{
+                  position: 'relative',
+                  zIndex: 1,
+                  height: '88vh',
+                  maxHeight: '700px',
+                  width: 'auto',
+                  objectFit: 'contain',
+                  mixBlendMode: 'screen',
+                  filter: 'brightness(1.05) contrast(1.02)',
+                  animation: 'fadeUp .8s ease 1.1s both',
+                }}
               >
                 <source src="/valentina.mp4" type="video/mp4" />
               </video>
