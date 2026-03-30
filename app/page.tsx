@@ -107,6 +107,7 @@ export default function Home() {
           </div>
           <div className="nav-end">
             <button className="n-g">Iniciar sesión</button>
+            <Link href="/publicar" className="n-pub">+ Publicar propiedad</Link>
             <a href="#cta" className="n-s">Comenzar →</a>
           </div>
         </div>
@@ -132,6 +133,7 @@ export default function Home() {
               </p>
               <div className="hero-ctas" style={{ animation: 'fadeUp .6s ease .65s both' }}>
                 <a href="#sistema" className="btn solid">▶&nbsp; Ver demo en vivo</a>
+                <Link href="/publicar" className="btn pub-hero">🏢&nbsp; Publicar mi propiedad</Link>
                 <Link href="/alquiler-express" className="btn ghost">Alquiler Express →</Link>
               </div>
               <div className="hero-tech" style={{ animation: 'fadeUp .6s ease .8s both' }}>
@@ -443,6 +445,28 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      {/* BANNER PUBLICAR */}
+      <div style={{ background: 'var(--gray-50)', borderTop: '1px solid var(--gray-100)', borderBottom: '1px solid var(--gray-100)', padding: '28px 0' }}>
+        <div className="box">
+          <div className="pub-banner">
+            <div className="pub-banner-left">
+              <div className="pub-banner-icon">🏢</div>
+              <div>
+                <div className="pub-banner-title">¿Tenés una propiedad para alquilar?</div>
+                <div className="pub-banner-sub">Publicala gratis · Cobro garantizado · Inquilinos en promedio en 11 días</div>
+              </div>
+            </div>
+            <div className="pub-banner-right">
+              <div className="pub-banner-stat">
+                <span className="pub-stat-val">+340</span>
+                <span className="pub-stat-label">propietarios activos</span>
+              </div>
+              <Link href="/publicar" className="btn solid" style={{ whiteSpace: 'nowrap' }}>Publicar ahora →</Link>
+            </div>
+          </div>
+        </div>
+      </div>
 
       {/* IA ADVISOR CHATBOT */}
       <section id="ia" className="ia-sec" style={{ padding: '88px 0' }}>
