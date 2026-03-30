@@ -8,6 +8,7 @@ const ChatBot = dynamic(() => import('@/components/ChatBot'), { ssr: false })
 export default function Home() {
   const [dashTab, setDashTab] = useState('portfolio')
   const [featTab, setFeatTab] = useState('ia-pred')
+  const [showBubble, setShowBubble] = useState(true)
 
   // Loader
   useEffect(() => {
@@ -43,6 +44,20 @@ export default function Home() {
     els.forEach(el => { el.addEventListener('mouseenter', enter); el.addEventListener('mouseleave', leave) })
     return () => els.forEach(el => { el.removeEventListener('mouseenter', enter); el.removeEventListener('mouseleave', leave) })
   })
+
+  // Auto-close bubble after 8s
+  useEffect(() => {
+    const t = setTimeout(() => setShowBubble(false), 8000)
+    return () => clearTimeout(t)
+  }, [])
+
+  function openChat() {
+    setShowBubble(false)
+    setTimeout(() => {
+      const ia = document.getElementById('ia')
+      if (ia) ia.scrollIntoView({ behavior: 'smooth', block: 'start' })
+    }, 300)
+  }
 
   // IntersectionObserver reveal
   useEffect(() => {
@@ -94,20 +109,79 @@ export default function Home() {
 
       {/* HERO */}
       <section id="hero-master">
-        <div className="box" style={{ width: '100%' }}>
-          <div className="hero-badge"><span className="badge-dot" /> PropTech #1 en Paraguay</div>
-          <h1 style={{ animation: 'fadeUp .6s ease .35s both' }}>Tu patrimonio.<br /><span className="it">Inteligente.</span><br />Escalable.</h1>
-          <p className="hero-sub">Gestioná tus propiedades con IA real, tours 3D y automatización total. Del primer alquiler a un portfolio de edificios.</p>
-          <div className="hero-ctas">
-            <a href="#sistema" className="btn solid">▶&nbsp; Ver demo en vivo</a>
-            <Link href="/alquiler-express" className="btn ghost">Alquiler Express →</Link>
-          </div>
-          <div className="hero-tech">
-            <span className="tech-label">Stack</span>
-            <div className="tech-pills">
-              <span className="tech-pill">Supabase</span><span className="tech-pill">Claude AI</span><span className="tech-pill">Vercel</span><span className="tech-pill">Matterport</span>
+        <div className="h-orb h-orb-1" />
+        <div className="h-orb h-orb-2" />
+        <div className="box" style={{ width: '100%', position: 'relative', zIndex: 2 }}>
+          <div className="hero-grid">
+
+            {/* COLUMNA IZQUIERDA */}
+            <div className="hero-left">
+              <div className="hero-badge" style={{ animation: 'fadeUp .6s ease .2s both' }}>
+                <span className="badge-dot" /> PropTech #1 en Paraguay
+              </div>
+              <h1 style={{ animation: 'fadeUp .6s ease .35s both' }}>
+                Tu patrimonio.<br /><span className="it">Inteligente.</span><br />Escalable.
+              </h1>
+              <p className="hero-sub" style={{ animation: 'fadeUp .6s ease .5s both' }}>
+                Gestioná tus propiedades con IA real, tours 3D y automatización total. Del primer alquiler a un portfolio de edificios — un solo sistema.
+              </p>
+              <div className="hero-ctas" style={{ animation: 'fadeUp .6s ease .65s both' }}>
+                <a href="#sistema" className="btn solid">▶&nbsp; Ver demo en vivo</a>
+                <Link href="/alquiler-express" className="btn ghost">Alquiler Express →</Link>
+              </div>
+              <div className="hero-tech" style={{ animation: 'fadeUp .6s ease .8s both' }}>
+                <span className="tech-label">Stack</span>
+                <div className="tech-pills">
+                  <span className="tech-pill">Supabase</span><span className="tech-pill">Claude AI</span><span className="tech-pill">Vercel</span><span className="tech-pill">Matterport</span>
+                </div>
+              </div>
+              <div className="hero-stats-row" style={{ animation: 'fadeUp .6s ease .95s both' }}>
+                <div><div className="hero-stat-val">$47K</div><div className="hero-stat-lbl">Ingresos/mes promedio</div></div>
+                <div><div className="hero-stat-val">94%</div><div className="hero-stat-lbl">Ocupación garantizada</div></div>
+                <div><div className="hero-stat-val">24h</div><div className="hero-stat-lbl">Aprobación inquilinos</div></div>
+              </div>
             </div>
-          </div>
+
+            {/* COLUMNA DERECHA: Valentina */}
+            <div className="hero-right">
+              <div className="valentina-glow" />
+              <div className="valentina-ring" style={{ width: '280px', height: '280px', border: '1px solid rgba(45,91,227,.12)' }} />
+              <div className="valentina-ring" style={{ width: '380px', height: '380px', border: '1px solid rgba(45,91,227,.07)' }} />
+
+              <video
+                id="valentina-video"
+                autoPlay
+                muted
+                loop
+                playsInline
+              >
+                <source src="/valentina.mp4" type="video/mp4" />
+              </video>
+
+              {/* Bubble bienvenida */}
+              {showBubble && (
+                <div className="valentina-bubble">
+                  <p>"Hola! Soy <strong>Valentina</strong>, tu asesora de ProIA. ¿Te muestro las propiedades disponibles hoy?"</p>
+                  <div className="valentina-bubble-btns">
+                    <button className="vb-yes" onClick={openChat}>Sí, mostrámelas</button>
+                    <button className="vb-no" onClick={() => setShowBubble(false)}>Ahora no</button>
+                  </div>
+                </div>
+              )}
+
+              {/* Badge flotante */}
+              <div className="valentina-prop-badge">
+                <div className="vpb-inner">
+                  <div className="vpb-icon">🏢</div>
+                  <div>
+                    <div className="vpb-title">Villa Morra · Disponible</div>
+                    <div className="vpb-price">$1,200/mes · Sin depósito</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </div>{/* /hero-grid */}
 
           {/* DASHBOARD */}
           <div className="dash-wrap">
