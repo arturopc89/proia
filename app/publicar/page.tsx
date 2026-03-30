@@ -1,5 +1,5 @@
 'use client'
-import { useState, useCallback } from 'react'
+import { useState, useCallback, useEffect } from 'react'
 import Link from 'next/link'
 
 const STEPS = ['Tipo','Producto','Datos','Fotos','Amenities','Precio','Revisión','¡Listo!']
@@ -33,6 +33,12 @@ export default function Publicar() {
   const [producto, setProducto] = useState<string | null>(null)
   const [amenities, setAmenities] = useState<Set<string>>(new Set())
   const [precio, setPrecio] = useState(1200)
+
+  // Restaurar cursor en esta página (globals.css lo oculta globalmente)
+  useEffect(() => {
+    document.body.style.cursor = 'default'
+    return () => { document.body.style.cursor = '' }
+  }, [])
 
   const toggleAmenity = useCallback((name: string) => {
     setAmenities(prev => {
