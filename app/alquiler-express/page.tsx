@@ -19,7 +19,13 @@ export default function AlquilerExpress() {
 
   useEffect(() => {
     document.body.style.cursor = 'default'
-    return () => { document.body.style.cursor = '' }
+    const frames = document.querySelectorAll('.m-photo-frame')
+    const obs = new IntersectionObserver(
+      (entries) => entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('char-visible'); obs.unobserve(e.target) } }),
+      { threshold: 0.3 }
+    )
+    frames.forEach(f => obs.observe(f))
+    return () => { document.body.style.cursor = ''; obs.disconnect() }
   }, [])
 
 
