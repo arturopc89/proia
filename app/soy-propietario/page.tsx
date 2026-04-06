@@ -41,7 +41,7 @@ export default function SoyPropietario() {
               ¿Cuál es tu <em className="m-em">situación?</em>
             </h2>
           </div>
-          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '20px' }}>
+          <div className="sp-dos-col">
             {/* Alquila Seguro */}
             <Link href="/alquila-seguro" style={{ textDecoration: 'none' }}>
               <div style={{ background: 'var(--m-blue)', borderRadius: '24px', padding: '40px', color: '#fff', transition: 'transform .25s', cursor: 'pointer' }}
