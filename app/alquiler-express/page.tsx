@@ -84,8 +84,8 @@ export default function AlquilerExpress() {
               </div>
             </div>
             <div className="m-photo-frame">
-              <img src="https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?w=800&q=80" alt="Apartamento moderno" className="m-photo-bg" />
-              <img src="/personajes/agente-mujer.png" alt="" className="m-photo-char" />
+              <img src="https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?w=800&q=80" alt="Apartamento moderno" className="m-photo-bg" loading="lazy" />
+              <img src="/personajes/agente-mujer.png" alt="" className="m-photo-char" loading="lazy" />
               <div className="m-photo-badge">Sin depósito · Sin fiador · 24h</div>
             </div>
           </div>

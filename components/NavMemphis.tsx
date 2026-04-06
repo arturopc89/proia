@@ -1,5 +1,6 @@
 'use client'
 import Link from 'next/link'
+import Image from 'next/image'
 import { usePathname } from 'next/navigation'
 import { useEffect, useState } from 'react'
 
@@ -18,7 +19,7 @@ export default function NavMemphis() {
     <nav className={`nav-memphis nav-white${scrolled ? ' nav-shadowed' : ''}`}>
       <div className="nav-memphis-inner">
         <Link href="/" className="nav-memphis-logo">
-          <img src="/logo.png" alt="ProIA" className="nav-memphis-logo-img" />
+          <Image src="/logo.png" alt="ProIA" width={120} height={40} priority className="nav-memphis-logo-img" />
         </Link>
         <div className="nav-memphis-links">
           <Link href="/alquiler-express" className="nav-memphis-link">Quiero alquilar</Link>

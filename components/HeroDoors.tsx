@@ -73,6 +73,7 @@ export default function HeroDoors() {
               <video
                 className="door-behind-video"
                 autoPlay muted loop playsInline
+                preload="metadata"
                 poster="/img/hero-propietario.jpg"
               >
                 <source src="/video-edificios.mp4" type="video/mp4" />
@@ -80,6 +81,7 @@ export default function HeroDoors() {
               <video
                 className="door-behind-video"
                 autoPlay muted loop playsInline
+                preload="metadata"
                 poster="https://images.unsplash.com/photo-1543610892-0b1f7e6d8ac1?w=600&q=80"
               >
                 <source src="/video-pareja.mp4" type="video/mp4" />

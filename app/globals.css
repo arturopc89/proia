@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&family=Instrument+Serif:ital@0;1&display=swap');
+/* Fonts auto-hosted via next/font — no external @import needed */
 
 :root {
   /* ── Memphis palette ── */
@@ -23,7 +23,7 @@
 }
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
-body{font-family:'Plus Jakarta Sans',sans-serif;background:#fff;color:var(--gray-900);overflow-x:hidden;-webkit-font-smoothing:antialiased}
+body{font-family:var(--font-jakarta,'Plus Jakarta Sans'),sans-serif;background:#fff;color:var(--gray-900);overflow-x:hidden;-webkit-font-smoothing:antialiased}
 
 /* LOADER */
 #loader{position:fixed;inset:0;background:#fff;z-index:10000;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:24px;transition:opacity .7s,visibility .7s}
@@ -59,10 +59,10 @@ nav{position:fixed;top:0;left:0;right:0;z-index:1000;height:66px;background:rgba
 .box{max-width:var(--max);margin:0 auto;padding:0 24px}
 
 /* TYPOGRAPHY */
-h1{font-family:'Plus Jakarta Sans',sans-serif;font-size:clamp(48px,6.5vw,88px);font-weight:800;line-height:1.0;letter-spacing:-3px;color:var(--blue-950)}
-h1 .it{font-family:'Instrument Serif',serif;font-weight:400;font-style:italic;color:var(--blue-500);letter-spacing:-1px}
-h2{font-family:'Plus Jakarta Sans',sans-serif;font-size:clamp(32px,4vw,56px);font-weight:800;line-height:1.05;letter-spacing:-2px;color:var(--blue-950)}
-h2 .it{font-family:'Instrument Serif',serif;font-weight:400;font-style:italic;color:var(--blue-500);letter-spacing:-1px}
+h1{font-family:var(--font-jakarta,'Plus Jakarta Sans'),sans-serif;font-size:clamp(48px,6.5vw,88px);font-weight:800;line-height:1.0;letter-spacing:-3px;color:var(--blue-950)}
+h1 .it{font-family:var(--font-serif,'Instrument Serif'),serif;font-weight:400;font-style:italic;color:var(--blue-500);letter-spacing:-1px}
+h2{font-family:var(--font-jakarta,'Plus Jakarta Sans'),sans-serif;font-size:clamp(32px,4vw,56px);font-weight:800;line-height:1.05;letter-spacing:-2px;color:var(--blue-950)}
+h2 .it{font-family:var(--font-serif,'Instrument Serif'),serif;font-weight:400;font-style:italic;color:var(--blue-500);letter-spacing:-1px}
 h3{font-size:22px;font-weight:800;letter-spacing:-.5px;color:var(--blue-950)}
 .eyebrow{font-size:11px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--blue-500);margin-bottom:14px}
 .eyebrow.white{color:var(--blue-300)}
@@ -802,8 +802,8 @@ footer{background:var(--blue-950);padding:44px 0 28px;border-top:1px solid rgba(
 /* ── Eyebrow Memphis ── */
 .m-eyebrow{font-size:11px;font-weight:700;letter-spacing:3.5px;text-transform:uppercase;color:var(--orange);display:flex;align-items:center;gap:14px;margin-bottom:18px}
 .m-eyebrow::before{content:'';width:28px;height:2px;background:var(--orange);flex-shrink:0}
-.m-em{font-family:'Instrument Serif',serif;font-weight:400;font-style:italic;color:var(--orange)}
-.m-em-blue{font-family:'Instrument Serif',serif;font-weight:400;font-style:italic;color:var(--m-blue)}
+.m-em{font-family:var(--font-serif,'Instrument Serif'),serif;font-weight:400;font-style:italic;color:var(--orange)}
+.m-em-blue{font-family:var(--font-serif,'Instrument Serif'),serif;font-weight:400;font-style:italic;color:var(--m-blue)}
 
 /* ── Nav Memphis — white clean ── */
 .nav-memphis{position:fixed;top:0;left:0;right:0;z-index:200;height:72px;background:#fff;border-bottom:1px solid rgba(0,0,0,.07);transition:box-shadow .25s}
@@ -855,7 +855,7 @@ footer{background:var(--blue-950);padding:44px 0 28px;border-top:1px solid rgba(
 .door-label{display:flex;align-items:center;gap:8px;margin-bottom:14px;font-size:11px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:rgba(255,255,255,.5)}
 .door-pulse{width:6px;height:6px;border-radius:50%;background:var(--orange);display:inline-block;animation:pulse 2s ease-in-out infinite}
 .door-h1{font-size:clamp(48px,5.5vw,76px);font-weight:900;line-height:.95;letter-spacing:-3px;color:#fff;margin-bottom:16px}
-.door-em{font-family:'Instrument Serif',serif;font-weight:400;font-style:italic;color:var(--orange)}
+.door-em{font-family:var(--font-serif,'Instrument Serif'),serif;font-weight:400;font-style:italic;color:var(--orange)}
 .door-desc{font-size:15px;color:rgba(255,255,255,.55);line-height:1.65;max-width:380px;margin-bottom:24px}
 .door-pills{display:flex;gap:10px;flex-wrap:wrap}
 .door-pill{font-size:11px;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;padding:6px 14px;border-radius:100px;border:1px solid rgba(255,255,255,.2);color:rgba(255,255,255,.6);transition:all .3s}
