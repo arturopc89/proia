@@ -46,7 +46,8 @@ export default function Home() {
               </div>
             </div>
             <div className="m-photo-frame">
-              <img src="https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?w=800&q=80" alt="Apartamento moderno en Asunción" />
+              <img src="https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?w=800&q=80" alt="Apartamento moderno en Asunción" className="m-photo-bg" />
+              <img src="/personajes/agente-mujer.png" alt="" className="m-photo-char" />
               <div className="m-photo-badge">Sin depósito · Sin fiador · Aprobación 24h</div>
             </div>
           </div>
@@ -58,7 +59,8 @@ export default function Home() {
         <div className="m-box">
           <div className="m-two-col-rev">
             <div className="m-photo-frame">
-              <img src="https://images.unsplash.com/photo-1493809842364-78817add7ffb?w=800&q=80" alt="Propiedad en Asunción" />
+              <img src="https://images.unsplash.com/photo-1493809842364-78817add7ffb?w=800&q=80" alt="Propiedad en Asunción" className="m-photo-bg" />
+              <img src="/personajes/agente-hombre.png" alt="" className="m-photo-char" />
               <div className="m-photo-badge">+340 propietarios activos</div>
             </div>
             <div>

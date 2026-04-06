@@ -14,22 +14,25 @@ export default function CompraAlquilando() {
       {/* HERO */}
       <div className="m-inner-hero m-inner-hero-blue" style={{ paddingTop: '140px' }}>
         <div className="m-box">
-          <div style={{ maxWidth: '640px' }}>
-            <p className="m-eyebrow">Para inquilinos</p>
-            <h1>Compra<br /><em className="door-em">alquilando</em></h1>
-            <p style={{ color: 'rgba(255,255,255,.7)', fontSize: '18px', lineHeight: 1.7, maxWidth: '480px', margin: '16px 0 32px' }}>
-              Tu alquiler de hoy se convierte en la cuota de tu casa propia. Sin enganche, sin historial crediticio.
-            </p>
-            <div className="m-inner-stats">
-              {[['$0','Enganche inicial'],['100%','Alquiler aplicado'],['5 años','Para decidir comprar']].map(([v,l]) => (
-                <div key={l}>
-                  <div className="m-inner-stat-val">{v}</div>
-                  <div className="m-inner-stat-lbl">{l}</div>
-                </div>
-              ))}
+          <div className="m-inner-hero-grid">
+            <div className="m-inner-text">
+              <p className="m-eyebrow">Para inquilinos</p>
+              <h1>Compra<br /><em className="door-em">alquilando</em></h1>
+              <p>Tu alquiler de hoy se convierte en la cuota de tu casa propia. Sin enganche, sin historial crediticio.</p>
+              <div className="m-inner-stats">
+                {[['$0','Enganche inicial'],['100%','Alquiler aplicado'],['5 años','Para decidir comprar']].map(([v,l]) => (
+                  <div key={l}>
+                    <div className="m-inner-stat-val">{v}</div>
+                    <div className="m-inner-stat-lbl">{l}</div>
+                  </div>
+                ))}
+              </div>
+              <div style={{ marginTop: '32px' }}>
+                <Link href="/alquiler-express" className="m-btn m-btn-orange">Ver propiedades →</Link>
+              </div>
             </div>
-            <div style={{ marginTop: '32px' }}>
-              <Link href="/alquiler-express" className="m-btn m-btn-orange">Ver propiedades →</Link>
+            <div className="m-inner-char">
+              <img src="/personajes/agente-mujer.png" alt="Asesora ProIA" />
             </div>
           </div>
         </div>
@@ -65,7 +68,8 @@ export default function CompraAlquilando() {
               </div>
             </div>
             <div className="m-photo-frame">
-              <img src="https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?w=800&q=80" alt="Apartamento moderno" />
+              <img src="https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?w=800&q=80" alt="Apartamento moderno" className="m-photo-bg" />
+              <img src="/personajes/pareja.png" alt="" className="m-photo-char" />
               <div className="m-photo-badge">Tu alquiler ya es tuyo</div>
             </div>
           </div>

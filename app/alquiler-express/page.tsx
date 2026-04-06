@@ -28,23 +28,26 @@ export default function AlquilerExpress() {
       {/* HERO */}
       <div className="m-inner-hero m-inner-hero-blue" style={{ paddingTop: '140px' }}>
         <div className="m-box">
-          <div style={{ maxWidth: '640px' }}>
-            <p className="m-eyebrow">Para inquilinos</p>
-            <h1>Alquilá sin<br /><em className="door-em">burocracia</em></h1>
-            <p style={{ color: 'rgba(255,255,255,.7)', fontSize: '18px', lineHeight: 1.7, maxWidth: '480px', margin: '16px 0 32px' }}>
-              Sin depósito, sin fiador, sin comisión. La IA evalúa tu perfil en 24h y te conecta directo con el propietario.
-            </p>
-            <div className="m-inner-stats">
-              {[['24h','Aprobación'],['$0','Depósito'],['98%','Cobros a tiempo']].map(([v,l]) => (
-                <div key={l}>
-                  <div className="m-inner-stat-val">{v}</div>
-                  <div className="m-inner-stat-lbl">{l}</div>
-                </div>
-              ))}
+          <div className="m-inner-hero-grid">
+            <div className="m-inner-text">
+              <p className="m-eyebrow">Para inquilinos</p>
+              <h1>Alquilá sin<br /><em className="door-em">burocracia</em></h1>
+              <p>Sin depósito, sin fiador, sin comisión. La IA evalúa tu perfil en 24h y te conecta directo con el propietario.</p>
+              <div className="m-inner-stats">
+                {[['24h','Aprobación'],['$0','Depósito'],['98%','Cobros a tiempo']].map(([v,l]) => (
+                  <div key={l}>
+                    <div className="m-inner-stat-val">{v}</div>
+                    <div className="m-inner-stat-lbl">{l}</div>
+                  </div>
+                ))}
+              </div>
+              <div style={{ marginTop: '32px', display: 'flex', gap: '12px', flexWrap: 'wrap' }}>
+                <Link href="/compra-alquilando" className="m-btn m-btn-orange">Compra Alquilando →</Link>
+                <Link href="/soy-propietario" className="m-btn m-btn-outline">Soy propietario</Link>
+              </div>
             </div>
-            <div style={{ marginTop: '32px', display: 'flex', gap: '12px', flexWrap: 'wrap' }}>
-              <Link href="/compra-alquilando" className="m-btn m-btn-orange">Compra Alquilando →</Link>
-              <Link href="/soy-propietario" className="m-btn m-btn-outline">Soy propietario</Link>
+            <div className="m-inner-char">
+              <img src="/personajes/agente-mujer.png" alt="Asesora ProIA" />
             </div>
           </div>
         </div>
@@ -77,7 +80,8 @@ export default function AlquilerExpress() {
               </div>
             </div>
             <div className="m-photo-frame">
-              <img src="https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?w=800&q=80" alt="Apartamento moderno" />
+              <img src="https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?w=800&q=80" alt="Apartamento moderno" className="m-photo-bg" />
+              <img src="/personajes/agente-mujer.png" alt="" className="m-photo-char" />
               <div className="m-photo-badge">Sin depósito · Sin fiador · 24h</div>
             </div>
           </div>

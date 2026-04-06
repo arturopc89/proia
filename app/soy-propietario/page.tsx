@@ -14,19 +14,22 @@ export default function SoyPropietario() {
       {/* HERO */}
       <div className="m-inner-hero m-inner-hero-blue" style={{ paddingTop: '140px' }}>
         <div className="m-box">
-          <div style={{ maxWidth: '640px' }}>
-            <p className="m-eyebrow">Propietarios</p>
-            <h1>Soy<br /><em className="door-em">propietario</em></h1>
-            <p style={{ color: 'rgba(255,255,255,.7)', fontSize: '18px', lineHeight: 1.7, maxWidth: '480px', margin: '16px 0 32px' }}>
-              Elegí cómo querés hacer crecer tu inversión. ProIA gestiona todo, vos solo cobrás.
-            </p>
-            <div className="m-inner-stats">
-              {[['$0','Costo inicial'],['100%','Cobro garantizado'],['+340','Propietarios activos']].map(([v,l]) => (
-                <div key={l}>
-                  <div className="m-inner-stat-val">{v}</div>
-                  <div className="m-inner-stat-lbl">{l}</div>
-                </div>
-              ))}
+          <div className="m-inner-hero-grid">
+            <div className="m-inner-text">
+              <p className="m-eyebrow">Propietarios</p>
+              <h1>Soy<br /><em className="door-em">propietario</em></h1>
+              <p>Elegí cómo querés hacer crecer tu inversión. ProIA gestiona todo, vos solo cobrás.</p>
+              <div className="m-inner-stats">
+                {[['$0','Costo inicial'],['100%','Cobro garantizado'],['+340','Propietarios activos']].map(([v,l]) => (
+                  <div key={l}>
+                    <div className="m-inner-stat-val">{v}</div>
+                    <div className="m-inner-stat-lbl">{l}</div>
+                  </div>
+                ))}
+              </div>
+            </div>
+            <div className="m-inner-char">
+              <img src="/personajes/agente-hombre.png" alt="Asesor ProIA" />
             </div>
           </div>
         </div>

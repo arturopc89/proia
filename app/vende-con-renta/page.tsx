@@ -14,23 +14,26 @@ export default function VendeConRenta() {
       {/* HERO */}
       <div className="m-inner-hero" style={{ paddingTop: '140px', background: 'var(--m-black)' }}>
         <div className="m-box">
-          <div style={{ maxWidth: '640px' }}>
-            <p className="m-eyebrow">Para propietarios</p>
-            <h1 style={{ color: '#fff' }}>Vende con<br /><em className="door-em">renta</em></h1>
-            <p style={{ color: 'rgba(255,255,255,.6)', fontSize: '18px', lineHeight: 1.7, maxWidth: '480px', margin: '16px 0 32px' }}>
-              Vendé tu propiedad al mejor precio mientras seguís cobrando alquiler. Sin meses vacíos, sin perder ingresos.
-            </p>
-            <div className="m-inner-stats">
-              {([['+12%','Precio vs. desocupada'],['$0','Meses sin ingreso'],['2x','Exposición en mercado']] as [string,string][]).map(([v,l]) => (
-                <div key={l}>
-                  <div className="m-inner-stat-val">{v}</div>
-                  <div className="m-inner-stat-lbl" style={{ color: 'rgba(255,255,255,.4)' }}>{l}</div>
-                </div>
-              ))}
+          <div className="m-inner-hero-grid">
+            <div className="m-inner-text">
+              <p className="m-eyebrow">Para propietarios</p>
+              <h1 style={{ color: '#fff' }}>Vende con<br /><em className="door-em">renta</em></h1>
+              <p style={{ color: 'rgba(255,255,255,.65)' }}>Vendé tu propiedad al mejor precio mientras seguís cobrando alquiler. Sin meses vacíos, sin perder ingresos.</p>
+              <div className="m-inner-stats">
+                {([['+12%','Precio vs. desocupada'],['$0','Meses sin ingreso'],['2x','Exposición en mercado']] as [string,string][]).map(([v,l]) => (
+                  <div key={l}>
+                    <div className="m-inner-stat-val">{v}</div>
+                    <div className="m-inner-stat-lbl" style={{ color: 'rgba(255,255,255,.4)' }}>{l}</div>
+                  </div>
+                ))}
+              </div>
+              <div style={{ marginTop: '32px', display: 'flex', gap: '12px', flexWrap: 'wrap' }}>
+                <Link href="/publicar" className="m-btn m-btn-orange">Publicar mi propiedad →</Link>
+                <a href="https://wa.me/595992900799" target="_blank" className="m-btn" style={{ background: 'rgba(255,255,255,.1)', color: '#fff', border: '1px solid rgba(255,255,255,.2)' }}>Hablar con agente</a>
+              </div>
             </div>
-            <div style={{ marginTop: '32px', display: 'flex', gap: '12px', flexWrap: 'wrap' }}>
-              <Link href="/publicar" className="m-btn m-btn-orange">Publicar mi propiedad →</Link>
-              <a href="https://wa.me/595992900799" target="_blank" className="m-btn" style={{ background: 'rgba(255,255,255,.1)', color: '#fff', border: '1px solid rgba(255,255,255,.2)' }}>Hablar con agente</a>
+            <div className="m-inner-char">
+              <img src="/personajes/agente-hombre.png" alt="Asesor ProIA" style={{ mixBlendMode: 'luminosity', opacity: 0.85 }} />
             </div>
           </div>
         </div>
@@ -73,7 +76,8 @@ export default function VendeConRenta() {
         <div className="m-box">
           <div className="m-two-col-rev">
             <div className="m-photo-frame">
-              <img src="https://images.unsplash.com/photo-1493809842364-78817add7ffb?w=800&q=80" alt="Propiedad en venta con renta" />
+              <img src="https://images.unsplash.com/photo-1493809842364-78817add7ffb?w=800&q=80" alt="Propiedad en venta con renta" className="m-photo-bg" />
+              <img src="/personajes/agente-hombre.png" alt="" className="m-photo-char" />
               <div className="m-photo-badge">+12% precio promedio</div>
             </div>
             <div>
