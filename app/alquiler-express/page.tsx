@@ -3,7 +3,6 @@ import { useEffect, useState } from 'react'
 import Link from 'next/link'
 import dynamic from 'next/dynamic'
 
-const ChatBot = dynamic(() => import('@/components/ChatBot'), { ssr: false })
 const Tour3D = dynamic(() => import('@/components/Tour3D'), { ssr: false })
 
 interface FaqItem { q: string; a: string }
@@ -47,139 +46,135 @@ export default function AlquilerExpress() {
 
   return (
     <>
-      <div id="cur" />
-      <div id="cur-r" />
-
-      <nav>
-        <div className="nav-i">
-          <Link href="/" className="nav-br">
-            <div className="nav-sq"><svg viewBox="0 0 24 24"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12" /></svg></div>
-            <span className="nav-nm">Pro<span>IA</span></span>
-          </Link>
-          <div className="nav-ls">
-            <Link href="/">Plataforma</Link>
-            <Link href="/alquiler-express" style={{ color: 'var(--blue-600)', background: 'var(--blue-50)', borderRadius: '7px' }}>Alquiler Express</Link>
-            <Link href="/rent-to-own">Rent-to-Own</Link>
-            <Link href="/portfolio-pro">Portfolio Pro</Link>
-          </div>
-          <div className="nav-end">
-            <button className="n-g">Iniciar sesión</button>
-            <Link href="/" className="n-s">Comenzar →</Link>
-          </div>
-        </div>
-      </nav>
-
       {/* HERO */}
-      <section className="sub-hero" style={{ background: 'linear-gradient(180deg,#fff 0%,var(--blue-50) 100%)' }}>
-        <div className="box">
-          <Link href="/" className="sub-back">← Volver a ProIA</Link>
-          <div className="sub-hero-grid">
-            <div>
-              <div className="eyebrow">Alquiler Express</div>
-              <h1>Alquilá sin<br />depósito, sin<br /><span className="it">burocracia.</span></h1>
-              <p style={{ marginTop: '18px', fontSize: '18px', color: 'var(--gray-500)', lineHeight: 1.7, maxWidth: '480px' }}>Sin depósito, sin fiador, sin comisión. La IA evalúa el riesgo en 24h y el propietario cobra garantizado pase lo que pase.</p>
-              <div style={{ display: 'flex', gap: '10px', marginTop: '28px', flexWrap: 'wrap' }}>
-                <button className="btn solid">Quiero alquilar →</button>
-                <button className="btn ghost">Soy propietario</button>
+      <div className="m-inner-hero m-inner-hero-blue" style={{ paddingTop: '140px' }}>
+        <div className="m-box">
+          <div className="m-inner-hero-grid">
+            <div className="m-inner-text">
+              <p className="m-eyebrow">Para inquilinos</p>
+              <h1>Alquilá sin<br /><em className="door-em">burocracia</em></h1>
+              <p>Sin depósito, sin fiador, sin comisión. La IA evalúa tu perfil en 24h y te conecta directo con el propietario.</p>
+              <div className="m-inner-stats">
+                {[['24h','Aprobación'],['$0','Depósito'],['98%','Cobros a tiempo']].map(([v,l]) => (
+                  <div key={l}>
+                    <div className="m-inner-stat-val">{v}</div>
+                    <div className="m-inner-stat-lbl">{l}</div>
+                  </div>
+                ))}
               </div>
-              <div className="hero-stats">
-                <div className="h-stat"><div className="h-stat-v">24h</div><div className="h-stat-l">Aprobación</div></div>
-                <div className="h-stat"><div className="h-stat-v">$0</div><div className="h-stat-l">Depósito</div></div>
-                <div className="h-stat"><div className="h-stat-v">98%</div><div className="h-stat-l">Cobros a tiempo</div></div>
+              <div style={{ marginTop: '32px', display: 'flex', gap: '12px', flexWrap: 'wrap' }}>
+                <Link href="/compra-alquilando" className="m-btn m-btn-orange">Compra Alquilando →</Link>
+                <Link href="/soy-propietario" className="m-btn m-btn-outline">Soy propietario</Link>
               </div>
             </div>
-            <div>
-              <div className="sub-hero-img">
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img src="https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?w=800&q=80" alt="Apartamento moderno en Asunción" />
-                <div className="img-badge"><div className="img-badge-val">$1,200/mes</div><div className="img-badge-lbl">📍 Villa Morra, Asunción · Disponible hoy</div></div>
-              </div>
+            <div className="m-inner-char">
+              <img src="/personajes/agente-mujer.png" alt="Asesora ProIA" />
             </div>
           </div>
         </div>
-      </section>
+      </div>
 
       {/* CÓMO FUNCIONA */}
-      <section className="sub-section">
-        <div className="box">
-          <div className="two-col">
-            <div className="rev">
-              <div className="eyebrow">¿Cómo funciona?</div>
-              <h2>Simple como<br /><span className="it">debe ser.</span></h2>
-              <div className="step-list">
-                <div className="step-item"><div className="step-num">1</div><div><div className="step-title">Elegís tu propiedad</div><div className="step-desc">Buscá entre todas las propiedades verificadas. Filtrá por zona, precio y características. Hacé el tour virtual antes de visitar.</div></div></div>
-                <div className="step-item"><div className="step-num">2</div><div><div className="step-title">La IA te evalúa en 24h</div><div className="step-desc">Sin papeleo interminable. El sistema analiza tu perfil y te da respuesta en menos de 24 horas. Sin discriminación, sin subjetividad.</div></div></div>
-                <div className="step-item"><div className="step-num">3</div><div><div className="step-title">Firmás todo digital</div><div className="step-desc">El contrato se firma 100% online. Sin ir a la inmobiliaria, sin perder días. Solo tu teléfono y una firma electrónica.</div></div></div>
-                <div className="step-item"><div className="step-num">4</div><div><div className="step-title">Te mudás</div><div className="step-desc">Con las llaves en mano y la gestión automatizada. Cualquier problema, un click.</div></div></div>
+      <section className="m-section" style={{ padding: '80px 0' }}>
+        <div className="m-box">
+          <div className="m-two-col">
+            <div>
+              <p className="m-eyebrow">¿Cómo funciona?</p>
+              <h2 style={{ fontSize: 'clamp(32px,4vw,52px)', fontWeight: 900, letterSpacing: '-2px', color: 'var(--m-black)', marginBottom: '32px' }}>
+                Simple como <em className="m-em">debe ser.</em>
+              </h2>
+              <div className="m-steps">
+                {[
+                  ['Elegís','Buscás entre propiedades verificadas con tour 3D.'],
+                  ['IA evalúa','Tu perfil se analiza en minutos, no días.'],
+                  ['Firmás digital','Contrato 100% digital desde el celular.'],
+                  ['Te mudás','Sin filas, sin burocracia, sin depósito.'],
+                ].map(([t, d]) => (
+                  <div key={t} className="m-step">
+                    <div className="m-step-num">→</div>
+                    <div>
+                      <div className="m-step-title">{t}</div>
+                      <div className="m-step-desc">{d}</div>
+                    </div>
+                  </div>
+                ))}
               </div>
             </div>
-            <div className="rev d2">
-              <div className="sub-img">
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img src="https://images.unsplash.com/photo-1484154218962-a197022b5858?w=700&q=80" alt="Interior moderno" />
-              </div>
+            <div className="m-char-wrap">
+              <img src="/personajes/agente-mujer.png" alt="Asesora ProIA" />
+              <div className="m-char-badge">Sin depósito · Sin fiador · 24h</div>
             </div>
           </div>
         </div>
       </section>
 
       {/* TOUR 3D */}
-      <section className="sub-section gray">
-        <div className="box">
-          <div className="rev" style={{ textAlign: 'center', maxWidth: '540px', margin: '0 auto 40px' }}>
-            <div className="eyebrow">Tour Virtual</div>
-            <h2>Visitá sin<br /><span className="it">salir de casa.</span></h2>
-            <p style={{ marginTop: '12px', color: 'var(--gray-500)', fontSize: '15px', lineHeight: 1.7 }}>Explorá cada rincón en 360° antes de decidir. Hotspots con información de los materiales.</p>
+      <section className="m-section" style={{ padding: '0 0 80px', background: 'var(--m-bg)' }}>
+        <div className="m-box">
+          <div style={{ textAlign: 'center', marginBottom: '40px' }}>
+            <p className="m-eyebrow" style={{ justifyContent: 'center' }}>Tour Virtual</p>
+            <h2 style={{ fontSize: 'clamp(32px,4vw,52px)', fontWeight: 900, letterSpacing: '-2px', color: 'var(--m-black)' }}>
+              Visitá sin <em className="m-em">salir de casa.</em>
+            </h2>
           </div>
-          <div className="rev">
-            <Tour3D />
-          </div>
+          <Tour3D />
         </div>
       </section>
 
       {/* BENEFICIOS */}
-      <section className="sub-section">
-        <div className="box">
-          <div style={{ textAlign: 'center', maxWidth: '540px', margin: '0 auto 40px' }} className="rev">
-            <div className="eyebrow">Beneficios</div>
-            <h2>Lo que cambia<br /><span className="it">para siempre.</span></h2>
+      <section className="m-section-blue">
+        <div className="m-box">
+          <div style={{ textAlign: 'center', marginBottom: '48px' }}>
+            <p className="m-eyebrow" style={{ justifyContent: 'center' }}>Beneficios</p>
+            <h2 style={{ fontSize: 'clamp(32px,4vw,52px)', fontWeight: 900, letterSpacing: '-2px', color: '#fff' }}>
+              Lo que cambia <em className="m-em">para siempre.</em>
+            </h2>
           </div>
-          <div className="benefits-grid">
-            <div className="ben-card dark-card rev"><div className="ben-icon">🚫</div><div className="ben-title">Sin depósito</div><div className="ben-desc">No necesitás meses de garantía anticipada. Liberás ese capital para lo que importa.</div></div>
-            <div className="ben-card rev d1"><div className="ben-icon">🤝</div><div className="ben-title">Sin fiador</div><div className="ben-desc">La IA asume el riesgo crediticio. No tenés que molestar a familiares o amigos.</div></div>
-            <div className="ben-card rev d2"><div className="ben-icon">💸</div><div className="ben-title">Sin comisión</div><div className="ben-desc">El inquilino no paga comisión inmobiliaria. Directo, justo y transparente.</div></div>
-            <div className="ben-card rev"><div className="ben-icon">⚡</div><div className="ben-title">Aprobación en 24h</div><div className="ben-desc">Evaluación automática sin burocracia. Respuesta en menos de un día hábil.</div></div>
-            <div className="ben-card rev d1"><div className="ben-icon">📱</div><div className="ben-title">100% Digital</div><div className="ben-desc">Desde la búsqueda hasta el contrato. Sin ir a ningún lado, todo desde tu teléfono.</div></div>
-            <div className="ben-card rev d2"><div className="ben-icon">🛡️</div><div className="ben-title">Garantía de cobro</div><div className="ben-desc">El propietario cobra siempre, pase lo que pase. ProIA asume el riesgo de impago.</div></div>
+          <div className="m-benefits" style={{ gridTemplateColumns: 'repeat(3,1fr)' }}>
+            {[
+              ['🚫','Sin depósito','No necesitás meses de garantía anticipada.'],
+              ['🤝','Sin fiador','La IA asume el riesgo crediticio.'],
+              ['💸','Sin comisión','El inquilino no paga comisión inmobiliaria.'],
+              ['⚡','Aprobación en 24h','Respuesta automática en menos de un día.'],
+              ['📱','100% Digital','Desde la búsqueda hasta el contrato.'],
+              ['🛡️','Cobro garantizado','El propietario cobra siempre, pase lo que pase.'],
+            ].map(([ic, t, d]) => (
+              <div key={t} className="m-benefit m-benefit-dark">
+                <div className="m-benefit-icon">{ic}</div>
+                <div className="m-benefit-title m-benefit-title-w">{t}</div>
+                <div className="m-benefit-desc m-benefit-desc-w">{d}</div>
+              </div>
+            ))}
           </div>
         </div>
       </section>
 
       {/* PROPIEDADES */}
-      <section className="sub-section">
-        <div className="box">
-          <div style={{ textAlign: 'center', maxWidth: '540px', margin: '0 auto 40px' }} className="rev">
-            <div className="eyebrow">Propiedades destacadas</div>
-            <h2>Encontrá tu<br /><span className="it">próximo hogar.</span></h2>
+      <section className="m-section" style={{ padding: '80px 0' }}>
+        <div className="m-box">
+          <div style={{ textAlign: 'center', marginBottom: '48px' }}>
+            <p className="m-eyebrow" style={{ justifyContent: 'center' }}>Propiedades destacadas</p>
+            <h2 style={{ fontSize: 'clamp(32px,4vw,52px)', fontWeight: 900, letterSpacing: '-2px', color: 'var(--m-black)' }}>
+              Tu próximo <em className="m-em">hogar.</em>
+            </h2>
           </div>
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3,1fr)', gap: '16px' }} className="rev">
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3,1fr)', gap: '20px' }}>
             {[
-              { img: 'https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?w=500&q=80', zona: 'Villa Morra, Asunción', precio: '$1,200/mes', desc: '3 dorm · 2 baños · 95m² · Sin depósito' },
-              { img: 'https://images.unsplash.com/photo-1493809842364-78817add7ffb?w=500&q=80', zona: 'Mcal. López, Asunción', precio: '$1,850/mes', desc: '4 dorm · 3 baños · 130m² · Piscina' },
-              { img: 'https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?w=500&q=80', zona: 'Recoleta, Asunción', precio: '$850/mes', desc: '2 dorm · 1 baño · 65m² · Piso 8' }
+              { img: 'https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?w=500&q=80', zona: 'Villa Morra, Asunción', precio: '$1,200/mes', desc: '3 dorm · 2 baños · 95m²' },
+              { img: 'https://images.unsplash.com/photo-1493809842364-78817add7ffb?w=500&q=80', zona: 'Mcal. López, Asunción', precio: '$1,850/mes', desc: '4 dorm · 3 baños · 130m²' },
+              { img: 'https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?w=500&q=80', zona: 'Recoleta, Asunción', precio: '$850/mes', desc: '2 dorm · 1 baño · 65m²' }
             ].map((p, i) => (
-              <div key={i} style={{ border: '1px solid var(--gray-200)', borderRadius: '14px', overflow: 'hidden', boxShadow: 'var(--sh-sm)', transition: 'all .3s', cursor: 'pointer' }}
-                onMouseEnter={e => { (e.currentTarget as HTMLElement).style.boxShadow = 'var(--sh-b)'; (e.currentTarget as HTMLElement).style.transform = 'translateY(-4px)' }}
-                onMouseLeave={e => { (e.currentTarget as HTMLElement).style.boxShadow = 'var(--sh-sm)'; (e.currentTarget as HTMLElement).style.transform = '' }}>
-                <div style={{ height: '180px', overflow: 'hidden' }}>
-                  {/* eslint-disable-next-line @next/next/no-img-element */}
+              <div key={i} style={{ borderRadius: '20px', overflow: 'hidden', background: '#fff', border: '1px solid rgba(0,0,0,.06)', transition: 'transform .25s', cursor: 'pointer' }}
+                onMouseEnter={e => (e.currentTarget.style.transform = 'translateY(-6px)')}
+                onMouseLeave={e => (e.currentTarget.style.transform = '')}>
+                <div style={{ height: '200px', overflow: 'hidden' }}>
                   <img src={p.img} alt={p.zona} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
                 </div>
-                <div style={{ padding: '16px' }}>
-                  <div style={{ fontSize: '11px', color: 'var(--gray-400)', marginBottom: '4px' }}>📍 {p.zona}</div>
-                  <div style={{ fontSize: '16px', fontWeight: 800, color: 'var(--blue-950)', marginBottom: '4px' }}>{p.precio}</div>
-                  <div style={{ fontSize: '12px', color: 'var(--gray-500)' }}>{p.desc}</div>
-                  <div style={{ marginTop: '10px' }}><span className="pill ok">Disponible</span></div>
+                <div style={{ padding: '20px' }}>
+                  <div style={{ fontSize: '11px', color: '#999', marginBottom: '6px' }}>📍 {p.zona}</div>
+                  <div style={{ fontSize: '18px', fontWeight: 900, color: 'var(--m-black)', marginBottom: '4px' }}>{p.precio}</div>
+                  <div style={{ fontSize: '13px', color: '#666', marginBottom: '12px' }}>{p.desc}</div>
+                  <span style={{ fontSize: '11px', fontWeight: 700, color: 'var(--orange)', background: 'rgba(241,127,6,.08)', padding: '4px 10px', borderRadius: '100px' }}>Disponible · Sin depósito</span>
                 </div>
               </div>
             ))}
@@ -188,76 +183,72 @@ export default function AlquilerExpress() {
       </section>
 
       {/* TESTIMONIOS */}
-      <section className="sub-section gray">
-        <div className="box">
-          <div style={{ textAlign: 'center', maxWidth: '480px', margin: '0 auto 40px' }} className="rev">
-            <div className="eyebrow">Testimonios</div>
-            <h2>Lo que dicen<br /><span className="it">nuestros usuarios.</span></h2>
+      <section className="m-section" style={{ padding: '0 0 80px', background: 'var(--m-bg)' }}>
+        <div className="m-box">
+          <div style={{ textAlign: 'center', marginBottom: '48px' }}>
+            <p className="m-eyebrow" style={{ justifyContent: 'center' }}>Testimonios</p>
+            <h2 style={{ fontSize: 'clamp(32px,4vw,52px)', fontWeight: 900, letterSpacing: '-2px', color: 'var(--m-black)' }}>
+              Lo que dicen <em className="m-em">nuestros usuarios.</em>
+            </h2>
           </div>
-          <div className="testimonial-grid">
-            <div className="testi rev"><div className="stars">★★★★★</div><div className="testi-q">"Me aprobaron en 19 horas. Sin fiador, sin depósito. En mi vida me imaginé que alquilar podía ser así de fácil en Paraguay."</div><div className="testi-bot"><div className="testi-av" style={{ background: 'var(--blue-50)' }}>👨</div><div><div className="testi-nm">Carlos M.</div><div className="testi-role">Inquilino · Villa Morra</div></div></div></div>
-            <div className="testi rev d1"><div className="stars">★★★★★</div><div className="testi-q">"Como propietaria, cobro el 1ro de cada mes sin falta. ProIA asume el riesgo y yo me olvido. Mis otros alquileres los paso acá también."</div><div className="testi-bot"><div className="testi-av" style={{ background: 'var(--green-l)' }}>👩</div><div><div className="testi-nm">Ana R.</div><div className="testi-role">Propietaria · 3 propiedades</div></div></div></div>
-            <div className="testi rev d2"><div className="stars">★★★★★</div><div className="testi-q">"Llegué de Buenos Aires y conseguí departamento en 2 días. Sin conocer a nadie, sin referencias locales. Increíble."</div><div className="testi-bot"><div className="testi-av" style={{ background: 'var(--amber-l)' }}>🧑</div><div><div className="testi-nm">Diego F.</div><div className="testi-role">Inquilino · Recoleta</div></div></div></div>
-          </div>
-        </div>
-      </section>
-
-      {/* FAQ */}
-      <section className="sub-section">
-        <div className="box" style={{ maxWidth: '700px' }}>
-          <div className="rev" style={{ textAlign: 'center', marginBottom: '32px' }}>
-            <div className="eyebrow">FAQ</div>
-            <h2>Preguntas<br /><span className="it">frecuentes.</span></h2>
-          </div>
-          <div className="faq-list rev">
-            {faqs.map((faq, i) => (
-              <div key={i} className={`faq-item${openFaq === i ? ' open' : ''}`}>
-                <button className="faq-q" onClick={() => setOpenFaq(openFaq === i ? null : i)}>
-                  {faq.q}<span className="faq-arrow">+</span>
-                </button>
-                <div className="faq-a"><div className="faq-a-inner">{faq.a}</div></div>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3,1fr)', gap: '20px' }}>
+            {[
+              { q: '"Me aprobaron en 19 horas. Sin fiador, sin depósito. Jamás imaginé que alquilar podía ser así de fácil."', name: 'Carlos M.', role: 'Inquilino · Villa Morra' },
+              { q: '"Como propietaria, cobro el 1° de cada mes sin falta. ProIA asume el riesgo y yo me olvido."', name: 'Ana R.', role: 'Propietaria · 3 propiedades' },
+              { q: '"Llegué de Buenos Aires y conseguí departamento en 2 días. Sin conocer a nadie, increíble."', name: 'Diego F.', role: 'Inquilino · Recoleta' },
+            ].map(({ q, name, role }) => (
+              <div key={name} style={{ background: '#fff', borderRadius: '20px', padding: '28px', border: '1px solid rgba(0,0,0,.06)' }}>
+                <div style={{ fontSize: '20px', color: 'var(--orange)', marginBottom: '12px' }}>★★★★★</div>
+                <p style={{ fontSize: '14px', lineHeight: 1.7, color: '#444', marginBottom: '20px' }}>{q}</p>
+                <div>
+                  <div style={{ fontSize: '14px', fontWeight: 800, color: 'var(--m-black)' }}>{name}</div>
+                  <div style={{ fontSize: '12px', color: '#999' }}>{role}</div>
+                </div>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* IA CHAT */}
-      <section className="ia-sec" style={{ padding: '88px 0' }}>
-        <div className="ia-bg" /><div className="ia-grid-bg" />
-        <div className="box" style={{ position: 'relative', zIndex: 2 }}>
-          <div className="ia-layout">
-            <div className="ia-left rev">
-              <div className="eyebrow white">IA Advisor</div>
-              <h2>Preguntá sobre<br /><span className="it">Alquiler Express.</span></h2>
-              <p>Nuestro asesor IA conoce cada detalle del producto. Consultá requisitos, precios, zonas disponibles y más.</p>
-            </div>
-            <div className="rev d2">
-              <ChatBot pageContext="express" />
-            </div>
+      {/* FAQ */}
+      <section className="m-section" style={{ padding: '80px 0' }}>
+        <div className="m-box" style={{ maxWidth: '700px' }}>
+          <div style={{ textAlign: 'center', marginBottom: '48px' }}>
+            <p className="m-eyebrow" style={{ justifyContent: 'center' }}>FAQ</p>
+            <h2 style={{ fontSize: 'clamp(32px,4vw,52px)', fontWeight: 900, letterSpacing: '-2px', color: 'var(--m-black)' }}>
+              Preguntas <em className="m-em">frecuentes.</em>
+            </h2>
+          </div>
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
+            {faqs.map((faq, i) => (
+              <div key={i} style={{ background: openFaq === i ? 'var(--m-black)' : '#fff', border: '1px solid rgba(0,0,0,.08)', borderRadius: '16px', overflow: 'hidden', transition: 'background .2s' }}>
+                <button onClick={() => setOpenFaq(openFaq === i ? null : i)}
+                  style={{ width: '100%', display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '20px 24px', background: 'none', border: 'none', cursor: 'pointer', textAlign: 'left' }}>
+                  <span style={{ fontSize: '15px', fontWeight: 700, color: openFaq === i ? '#fff' : 'var(--m-black)' }}>{faq.q}</span>
+                  <span style={{ fontSize: '20px', color: 'var(--orange)', fontWeight: 300, flexShrink: 0, marginLeft: '16px' }}>{openFaq === i ? '−' : '+'}</span>
+                </button>
+                {openFaq === i && (
+                  <div style={{ padding: '0 24px 20px', fontSize: '14px', color: 'rgba(255,255,255,.65)', lineHeight: 1.7 }}>{faq.a}</div>
+                )}
+              </div>
+            ))}
           </div>
         </div>
       </section>
 
       {/* CTA */}
-      <div className="box"><div className="sub-cta rev">
-        <h2>Listo para <span className="it">mudarte?</span></h2>
-        <p>Buscá tu próximo hogar hoy. Aprobación en 24h, sin depósito, sin comisión.</p>
-        <div className="cta-btns"><button className="btn white-btn">Ver propiedades disponibles →</button><button className="btn outline-white">Hablar con un agente</button></div>
-      </div></div>
-      <div style={{ height: '80px', background: '#fff' }} />
-
-      <footer>
-        <div className="box">
-          <div className="ft-top">
-            <div><div className="ft-br-logo"><div className="ft-br-sq">🏢</div><span className="ft-br-nm">ProIA</span></div><div className="ft-desc">Plataforma PropTech inteligente para Paraguay y Latinoamérica.</div></div>
-            <div className="ft-col"><div className="ft-ct">Producto</div><Link href="/alquiler-express">Alquiler Express</Link><Link href="/rent-to-own">Rent-to-Own</Link><Link href="/portfolio-pro">Portfolio Pro</Link></div>
-            <div className="ft-col"><div className="ft-ct">Empresa</div><a href="#">Nosotros</a><a href="#">Inversores</a><a href="#">Blog</a></div>
-            <div className="ft-col"><div className="ft-ct">Contacto</div><a href="mailto:info@proia.pro">info@proia.pro</a><a href="tel:+595992900799">+595 992 900 799</a></div>
+      <section style={{ padding: '0 0 120px' }}>
+        <div className="m-box">
+          <div className="m-cta-banner">
+            <h2>¿Listo para mudarte?</h2>
+            <p>Aprobación en 24h, sin depósito, sin comisión. Tu próximo hogar te está esperando.</p>
+            <div style={{ display: 'flex', gap: '12px', justifyContent: 'center', flexWrap: 'wrap' }}>
+              <Link href="/compra-alquilando" className="m-btn-white">Compra Alquilando →</Link>
+              <a href="https://wa.me/595992900799" target="_blank" className="m-btn m-btn-outline-w">Hablar con un agente</a>
+            </div>
           </div>
-          <div className="ft-bot"><span className="ft-copy">© 2026 ProIA · Tecnología Inmobiliaria Inteligente</span><div className="ft-links"><a href="#">Privacidad</a><a href="#">Términos</a></div></div>
         </div>
-      </footer>
+      </section>
     </>
   )
 }

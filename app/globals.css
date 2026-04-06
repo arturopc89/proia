@@ -1,6 +1,11 @@
-@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Instrument+Serif:ital@0;1&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&family=Instrument+Serif:ital@0;1&display=swap');
 
 :root {
+  /* ── Memphis palette ── */
+  --orange:#f17f06;--orange-dark:#c96800;--orange-light:#fdf0dc;
+  --m-blue:#054684;--m-blue-dark:#033260;--m-blue-light:#e8f0f9;
+  --m-black:#0D0D0D;--m-bg:#FAFAF8;--m-gray:#999;
+
   --blue-950:#060E2B;--blue-900:#0A1744;--blue-800:#102060;--blue-700:#1A3285;
   --blue-600:#2246B3;--blue-500:#2D5BE3;--blue-400:#4F78F0;--blue-300:#7FA3F5;
   --blue-100:#DCE8FF;--blue-50:#EEF4FF;
@@ -789,4 +794,190 @@ footer{background:var(--blue-950);padding:44px 0 28px;border-top:1px solid rgba(
   .ob-photo-grid{grid-template-columns:repeat(4,1fr)}
   .ob-success-stats{grid-template-columns:repeat(3,1fr)}
   .n-pub{display:none}
+}
+
+/* ════════════════════════════════════════
+   MEMPHIS DESIGN SYSTEM
+════════════════════════════════════════ */
+
+/* ── Eyebrow Memphis ── */
+.m-eyebrow{font-size:11px;font-weight:700;letter-spacing:3.5px;text-transform:uppercase;color:var(--orange);display:flex;align-items:center;gap:14px;margin-bottom:18px}
+.m-eyebrow::before{content:'';width:28px;height:2px;background:var(--orange);flex-shrink:0}
+.m-em{font-family:'Instrument Serif',serif;font-weight:400;font-style:italic;color:var(--orange)}
+.m-em-blue{font-family:'Instrument Serif',serif;font-weight:400;font-style:italic;color:var(--m-blue)}
+
+/* ── Nav Memphis ── */
+.nav-memphis{position:fixed;top:0;left:0;right:0;z-index:200;height:72px;mix-blend-mode:difference}
+.nav-memphis-inner{max-width:1200px;margin:0 auto;padding:0 40px;height:100%;display:flex;align-items:center;justify-content:space-between}
+.nav-memphis-logo{font-size:26px;font-weight:900;color:#fff;letter-spacing:-1px;text-decoration:none}
+.nav-memphis-logo em{font-style:normal;color:var(--orange)}
+.nav-memphis-links{display:flex;gap:4px}
+.nav-memphis-link{padding:7px 14px;border-radius:8px;font-size:13.5px;font-weight:500;color:#fff;text-decoration:none;transition:background .18s;opacity:.75}
+.nav-memphis-link:hover{background:rgba(255,255,255,.12);opacity:1}
+.nav-memphis-end{display:flex;gap:10px;align-items:center}
+.nav-m-ghost{padding:10px 20px;border-radius:9px;border:1px solid rgba(255,255,255,.25);font-size:13.5px;font-weight:600;color:#fff;text-decoration:none;transition:background .2s}
+.nav-m-ghost:hover{background:rgba(255,255,255,.1)}
+.nav-m-cta{padding:10px 20px;border-radius:9px;background:var(--orange);font-size:13.5px;font-weight:700;color:#fff;text-decoration:none;transition:background .2s}
+.nav-m-cta:hover{background:var(--orange-dark)}
+
+/* ── NAV SOLID (páginas internas) ── */
+.nav-solid{mix-blend-mode:normal;background:var(--m-blue);border-bottom:1px solid rgba(255,255,255,.08)}
+.nav-solid .nav-memphis-logo,.nav-solid .nav-memphis-link,.nav-solid .nav-m-ghost{color:#fff}
+
+/* ════════════════════════════════════════
+   HERO DOORS
+════════════════════════════════════════ */
+.hero-doors{position:relative;height:100vh;overflow:hidden}
+
+/* DETRÁS */
+.door-behind{position:absolute;inset:0;z-index:1;background:var(--m-bg);background-image:radial-gradient(rgba(5,70,132,.05) 1px,transparent 1px);background-size:20px 20px;display:flex;align-items:center}
+.door-behind-inner{max-width:1200px;margin:0 auto;padding:0 40px;width:100%}
+.door-behind-grid{display:grid;grid-template-columns:1.1fr 1fr;gap:80px;align-items:center}
+.door-behind-text{}
+.door-behind-h2{font-size:clamp(40px,5vw,68px);font-weight:900;line-height:.97;letter-spacing:-2.5px;color:var(--m-black);margin-bottom:40px}
+.door-behind-stats{display:grid;grid-template-columns:1fr 1fr;gap:20px 32px;padding-top:28px;border-top:1px solid #E8E5E0;margin-top:10px}
+.door-stat-val{font-size:clamp(36px,4.5vw,56px);font-weight:900;color:var(--m-blue);line-height:1;letter-spacing:-3px}
+.door-stat-lbl{font-size:11px;font-weight:600;color:var(--m-gray);margin-top:6px;text-transform:uppercase;letter-spacing:.5px}
+.door-behind-img{display:flex;justify-content:center;align-items:flex-end;height:480px}
+.door-behind-img img{width:100%;max-width:380px;object-fit:contain;object-position:bottom}
+
+/* PANEL BASE */
+.door-panel{position:absolute;top:0;height:100%;z-index:5;overflow:hidden;display:flex;flex-direction:column;justify-content:flex-end;padding:48px;cursor:pointer}
+.door-panel:hover .door-bg-img{transform:scale(1.03)}
+.door-panel:hover .door-character{transform:scale(1.03) translateY(-8px)}
+.door-left{left:0;width:50%}
+.door-right{right:0;width:50%}
+.door-bg-img{position:absolute;inset:0;width:100%;height:130%;object-fit:cover;opacity:.4;transition:transform .7s ease;top:-15%}
+.door-overlay{position:absolute;inset:0;z-index:1}
+.door-overlay-blue{background:linear-gradient(to top,var(--m-blue) 0%,rgba(5,70,132,.6) 50%,rgba(5,70,132,.1) 100%)}
+.door-overlay-dark{background:linear-gradient(to top,rgba(0,0,0,.9) 0%,rgba(0,0,0,.5) 50%,rgba(0,0,0,.1) 100%)}
+.door-character{position:absolute;bottom:0;right:0;height:80%;width:auto;object-fit:contain;object-position:bottom;z-index:2;pointer-events:none;mix-blend-mode:multiply;transition:transform .5s ease}
+.door-hover-line{position:absolute;bottom:0;left:0;right:0;height:3px;background:var(--orange);transform:scaleX(0);transition:transform .5s ease;transform-origin:left;z-index:10}
+.door-panel:hover .door-hover-line{transform:scaleX(1)}
+.door-content{position:relative;z-index:3}
+.door-label{display:flex;align-items:center;gap:8px;margin-bottom:14px;font-size:11px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:rgba(255,255,255,.5)}
+.door-pulse{width:6px;height:6px;border-radius:50%;background:var(--orange);display:inline-block;animation:pulse 2s ease-in-out infinite}
+.door-h1{font-size:clamp(48px,5.5vw,76px);font-weight:900;line-height:.95;letter-spacing:-3px;color:#fff;margin-bottom:16px}
+.door-em{font-family:'Instrument Serif',serif;font-weight:400;font-style:italic;color:var(--orange)}
+.door-desc{font-size:15px;color:rgba(255,255,255,.55);line-height:1.65;max-width:380px;margin-bottom:24px}
+.door-pills{display:flex;gap:10px;flex-wrap:wrap}
+.door-pill{font-size:11px;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;padding:6px 14px;border-radius:100px;border:1px solid rgba(255,255,255,.2);color:rgba(255,255,255,.6);transition:all .3s}
+.door-panel:hover .door-pill{border-color:rgba(241,127,6,.4);color:rgba(241,127,6,.8)}
+.door-scroll-hint{position:absolute;bottom:36px;left:50%;transform:translateX(-50%);z-index:20;display:flex;flex-direction:column;align-items:center;gap:10px;mix-blend-mode:difference}
+.door-scroll-line{width:1px;height:52px;background:#fff;animation:scrollLine 2s ease-in-out infinite;transform-origin:top}
+.door-scroll-hint span{font-size:9px;letter-spacing:4px;text-transform:uppercase;color:#fff;font-weight:600}
+
+/* ════════════════════════════════════════
+   SECCIONES MEMPHIS
+════════════════════════════════════════ */
+.m-section{padding:120px 0}
+.m-section-blue{padding:120px 0;background:var(--m-blue);position:relative;overflow:hidden}
+.m-section-dark{padding:120px 0;background:var(--m-black);position:relative;overflow:hidden}
+.m-section-light{padding:120px 0;background:var(--m-blue-light)}
+.m-box{max-width:1200px;margin:0 auto;padding:0 40px}
+.m-two-col{display:grid;grid-template-columns:1.1fr 1fr;gap:80px;align-items:center}
+.m-two-col-rev{display:grid;grid-template-columns:1fr 1.1fr;gap:80px;align-items:center}
+.m-section-num{font-size:130px;font-weight:900;color:rgba(0,0,0,.04);line-height:1;letter-spacing:-6px;margin-bottom:-20px}
+.m-section-num-w{color:rgba(255,255,255,.06)}
+
+/* Character */
+.m-char-wrap{display:flex;justify-content:center;align-items:flex-end;position:relative;height:480px}
+.m-char-wrap img{width:100%;max-width:380px;object-fit:contain;object-position:bottom;animation:float 4s ease-in-out infinite}
+.m-char-badge{position:absolute;bottom:16px;left:50%;transform:translateX(-50%);background:#fff;border-radius:100px;padding:10px 20px;box-shadow:0 8px 24px rgba(0,0,0,.12);font-size:12px;font-weight:700;color:var(--m-blue);white-space:nowrap}
+.m-char-badge-dark{background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.15);color:#fff}
+
+/* Steps */
+.m-steps{display:flex;flex-direction:column;gap:0;margin-top:40px}
+.m-step{display:flex;gap:20px;align-items:flex-start;padding:20px 0;border-bottom:1px solid rgba(0,0,0,.06)}
+.m-step:last-child{border:none}
+.m-step-w .m-step{border-color:rgba(255,255,255,.08)}
+.m-step-num{width:40px;height:40px;border-radius:50%;background:var(--orange);color:#fff;display:flex;align-items:center;justify-content:center;font-size:15px;font-weight:900;flex-shrink:0;box-shadow:0 4px 14px rgba(241,127,6,.35)}
+.m-step-title{font-size:16px;font-weight:700;color:var(--m-black);margin-bottom:4px}
+.m-step-title-w{color:#fff}
+.m-step-desc{font-size:14px;color:#666;line-height:1.6}
+.m-step-desc-w{color:rgba(255,255,255,.55)}
+
+/* Benefits */
+.m-benefits{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:40px}
+.m-benefit{background:#fff;border:1px solid #EDEBE7;border-radius:16px;padding:22px;transition:all .25s}
+.m-benefit:hover{border-color:var(--orange);box-shadow:0 8px 24px rgba(241,127,6,.1);transform:translateY(-3px)}
+.m-benefit-dark{background:rgba(255,255,255,.04);border-color:rgba(255,255,255,.08);color:#fff}
+.m-benefit-dark:hover{border-color:var(--orange);background:rgba(241,127,6,.06)}
+.m-benefit-icon{font-size:26px;margin-bottom:12px}
+.m-benefit-title{font-size:15px;font-weight:700;color:var(--m-black);margin-bottom:5px}
+.m-benefit-title-w{color:#fff}
+.m-benefit-desc{font-size:13px;color:#888;line-height:1.6}
+.m-benefit-desc-w{color:rgba(255,255,255,.45)}
+
+/* Stats strip */
+.m-stats-strip{display:grid;grid-template-columns:repeat(4,1fr);gap:0;border-top:1px solid #EDEBE7;margin-top:48px;padding-top:40px}
+.m-strip-stat{text-align:center;padding:0 20px}
+.m-strip-stat+.m-strip-stat{border-left:1px solid #EDEBE7}
+.m-strip-val{font-size:clamp(40px,4vw,56px);font-weight:900;color:var(--m-blue);letter-spacing:-2px;line-height:1}
+.m-strip-lbl{font-size:11px;font-weight:600;color:var(--m-gray);text-transform:uppercase;letter-spacing:.5px;margin-top:6px}
+
+/* CTA banner */
+.m-cta-banner{background:var(--orange);border-radius:24px;padding:64px 56px;text-align:center;position:relative;overflow:hidden;margin-top:80px}
+.m-cta-banner::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 70% 70% at 50% 0%,rgba(255,255,255,.12) 0%,transparent 70%)}
+.m-cta-banner h2{color:#fff;max-width:520px;margin:0 auto 12px;font-size:clamp(32px,4vw,52px);letter-spacing:-2px;position:relative}
+.m-cta-banner p{color:rgba(255,255,255,.7);font-size:15px;line-height:1.7;max-width:420px;margin:0 auto 32px;position:relative}
+.m-cta-banner .m-btn-white{display:inline-block;background:#fff;color:var(--orange);padding:14px 32px;border-radius:12px;font-size:15px;font-weight:800;text-decoration:none;transition:all .2s;position:relative}
+.m-cta-banner .m-btn-white:hover{background:var(--m-bg);box-shadow:0 12px 32px rgba(0,0,0,.15);transform:translateY(-2px)}
+
+/* Buttons */
+.m-btn{display:inline-block;padding:14px 28px;border-radius:12px;font-size:14px;font-weight:700;text-decoration:none;transition:all .2s;cursor:pointer;font-family:inherit;border:none}
+.m-btn-orange{background:var(--orange);color:#fff}
+.m-btn-orange:hover{background:var(--orange-dark);box-shadow:0 8px 24px rgba(241,127,6,.35);transform:translateY(-2px)}
+.m-btn-outline{background:transparent;color:var(--m-blue);border:1.5px solid var(--m-blue)}
+.m-btn-outline:hover{background:var(--m-blue);color:#fff}
+.m-btn-outline-w{background:transparent;color:#fff;border:1.5px solid rgba(255,255,255,.3)}
+.m-btn-outline-w:hover{background:rgba(255,255,255,.1);border-color:rgba(255,255,255,.6)}
+
+/* Sub-hero interno */
+.m-inner-hero{min-height:75vh;display:flex;flex-direction:column;justify-content:flex-end;padding:120px 0 64px;position:relative;overflow:hidden}
+.m-inner-hero-blue{background:var(--m-blue)}
+.m-inner-hero-dark{background:var(--m-black)}
+.m-inner-hero-grid{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:flex-end}
+.m-inner-char{position:relative;display:flex;align-items:flex-end;height:420px}
+.m-inner-char img{height:100%;width:auto;object-fit:contain;object-position:bottom;mix-blend-mode:multiply}
+.m-inner-text h1{font-size:clamp(52px,6vw,88px);font-weight:900;line-height:.93;letter-spacing:-4px;color:#fff;margin-bottom:20px}
+.m-inner-text p{font-size:17px;color:rgba(255,255,255,.55);line-height:1.7;max-width:420px;margin-bottom:32px}
+.m-inner-pills{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:32px}
+.m-inner-pill{font-size:11px;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;padding:6px 14px;border-radius:100px;border:1px solid rgba(255,255,255,.2);color:rgba(255,255,255,.6)}
+.m-inner-stats{display:flex;gap:32px;padding-top:24px;border-top:1px solid rgba(255,255,255,.1)}
+.m-inner-stat-val{font-size:32px;font-weight:900;color:#fff;letter-spacing:-1.5px;line-height:1}
+.m-inner-stat-lbl{font-size:11px;color:rgba(255,255,255,.4);text-transform:uppercase;letter-spacing:.5px;margin-top:4px}
+
+/* ── Keyframes Memphis ── */
+@keyframes scrollLine{
+  0%{transform:scaleY(0);opacity:0;transform-origin:top}
+  25%{opacity:1}
+  100%{transform:scaleY(1);opacity:0;transform-origin:top}
+}
+@keyframes float{
+  0%,100%{transform:translateY(0)}
+  50%{transform:translateY(-16px)}
+}
+@keyframes pulse{
+  0%,100%{opacity:1;transform:scale(1)}
+  50%{opacity:.4;transform:scale(.7)}
+}
+
+/* ── Memphis mobile ── */
+@media(max-width:768px){
+  .hero-doors{height:100svh}
+  .door-left,.door-right{width:100%;height:50%}
+  .door-left{top:0}
+  .door-right{top:50%}
+  .door-behind-grid,.m-two-col,.m-two-col-rev{grid-template-columns:1fr}
+  .door-behind-img,.m-char-wrap{height:260px}
+  .m-section,.m-section-blue,.m-section-dark,.m-section-light{padding:72px 0}
+  .m-benefits{grid-template-columns:1fr 1fr}
+  .m-stats-strip{grid-template-columns:1fr 1fr}
+  .m-strip-stat+.m-strip-stat{border-left:none}
+  .m-stats-strip .m-strip-stat:nth-child(odd){border-right:1px solid #EDEBE7}
+  .nav-memphis{mix-blend-mode:normal;background:var(--m-blue)}
+  .nav-memphis-links{display:none}
+  .m-inner-hero-grid{grid-template-columns:1fr}
+  .m-inner-char{height:220px}
 }

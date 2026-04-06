@@ -1,15 +1,22 @@
 import type { Metadata } from 'next'
 import './globals.css'
+import LenisProvider from '@/components/LenisProvider'
+import NavMemphis from '@/components/NavMemphis'
 
 export const metadata: Metadata = {
-  title: 'ProIA — Plataforma Inmobiliaria Inteligente',
-  description: 'PropTech #1 en Paraguay. Gestioná tus propiedades con IA real, tours 3D y automatización total.',
+  title: 'ProIA — La inmobiliaria inteligente · Paraguay',
+  description: 'Sin depósito, sin fiador. Alquilá, comprá o publicá tu propiedad con IA. Cobro garantizado.',
 }
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="es">
-      <body>{children}</body>
+      <body>
+        <LenisProvider>
+          <NavMemphis />
+          {children}
+        </LenisProvider>
+      </body>
     </html>
   )
 }
