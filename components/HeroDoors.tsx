@@ -68,34 +68,37 @@ export default function HeroDoors() {
               </div>
             </div>
 
-            {/* Videos: edificios + pareja */}
-            <div className="door-behind-videos">
-              <video
-                className="door-behind-video"
-                autoPlay muted loop playsInline
-                poster="/img/hero-propietario.jpg"
-              >
-                <source src="/video-edificios.mp4" type="video/mp4" />
-              </video>
-              <video
-                className="door-behind-video"
-                autoPlay muted loop playsInline
-                poster="https://images.unsplash.com/photo-1543610892-0b1f7e6d8ac1?w=600&q=80"
-              >
-                <source src="/video-pareja.mp4" type="video/mp4" />
-              </video>
+            {/* Videos + personaje abajo */}
+            <div className="door-behind-right">
+              <div className="door-behind-videos">
+                <video
+                  className="door-behind-video"
+                  autoPlay muted loop playsInline
+                  poster="/img/hero-propietario.jpg"
+                >
+                  <source src="/video-edificios.mp4" type="video/mp4" />
+                </video>
+                <video
+                  className="door-behind-video"
+                  autoPlay muted loop playsInline
+                  poster="https://images.unsplash.com/photo-1543610892-0b1f7e6d8ac1?w=600&q=80"
+                >
+                  <source src="/video-pareja.mp4" type="video/mp4" />
+                </video>
+              </div>
+              {/* PERSONAJE — debajo de los videos, screen blend elimina fondo negro */}
+              <div className="door-behind-char-wrap">
+                <img
+                  ref={charRef}
+                  src="/personajes/hombre-llave.png"
+                  alt="Asesor ProIA"
+                  className="door-behind-char"
+                />
+              </div>
             </div>
           </div>
         </div>
       </div>
-
-      {/* PERSONAJE — aparece con retardo via GSAP (screen blend elimina fondo negro) */}
-      <img
-        ref={charRef}
-        src="/personajes/hombre-llave.png"
-        alt="Asesor ProIA"
-        className="door-behind-char"
-      />
 
       {/* PUERTA IZQUIERDA — Quiero alquilar */}
       <div ref={doorLeftRef} className="door-panel door-left" onClick={() => window.location.href = '/alquiler-express'}>

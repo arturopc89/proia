@@ -32,9 +32,6 @@ export default function VendeConRenta() {
                 <a href="https://wa.me/595992900799" target="_blank" className="m-btn" style={{ background: 'rgba(255,255,255,.1)', color: '#fff', border: '1px solid rgba(255,255,255,.2)' }}>Hablar con agente</a>
               </div>
             </div>
-            <div className="m-inner-char">
-              <img src="/personajes/agente-hombre.png" alt="Asesor ProIA" style={{ mixBlendMode: 'luminosity', opacity: 0.85 }} />
-            </div>
           </div>
         </div>
       </div>

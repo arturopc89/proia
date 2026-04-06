@@ -31,9 +31,6 @@ export default function AlquilaSeguro() {
                 <Link href="/publicar" className="m-btn m-btn-orange">Publicar mi propiedad →</Link>
               </div>
             </div>
-            <div className="m-inner-char">
-              <img src="/personajes/agente-hombre.png" alt="Asesor ProIA" />
-            </div>
           </div>
         </div>
       </div>

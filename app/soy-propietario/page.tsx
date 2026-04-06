@@ -28,9 +28,6 @@ export default function SoyPropietario() {
                 ))}
               </div>
             </div>
-            <div className="m-inner-char">
-              <img src="/personajes/agente-hombre.png" alt="Asesor ProIA" />
-            </div>
           </div>
         </div>
       </div>

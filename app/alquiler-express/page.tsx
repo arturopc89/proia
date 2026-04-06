@@ -46,9 +46,6 @@ export default function AlquilerExpress() {
                 <Link href="/soy-propietario" className="m-btn m-btn-outline">Soy propietario</Link>
               </div>
             </div>
-            <div className="m-inner-char">
-              <img src="/personajes/agente-mujer.png" alt="Asesora ProIA" />
-            </div>
           </div>
         </div>
       </div>

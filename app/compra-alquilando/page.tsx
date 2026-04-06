@@ -31,9 +31,6 @@ export default function CompraAlquilando() {
                 <Link href="/alquiler-express" className="m-btn m-btn-orange">Ver propiedades →</Link>
               </div>
             </div>
-            <div className="m-inner-char">
-              <img src="/personajes/agente-mujer.png" alt="Asesora ProIA" />
-            </div>
           </div>
         </div>
       </div>
