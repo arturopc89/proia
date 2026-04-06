@@ -93,7 +93,7 @@ export default function AlquilerExpress() {
       </section>
 
       {/* TOUR 3D */}
-      <section className="m-section" style={{ padding: '0 0 80px', background: 'var(--m-bg)' }}>
+      <section className="m-section" style={{ padding: '100px 0 80px', background: 'var(--m-bg)' }}>
         <div className="m-box">
           <div style={{ textAlign: 'center', marginBottom: '40px' }}>
             <p className="m-eyebrow" style={{ justifyContent: 'center' }}>Tour Virtual</p>
