@@ -982,7 +982,7 @@ footer{background:var(--blue-950);padding:44px 0 28px;border-top:1px solid rgba(
 
 /* ── Memphis mobile ── */
 @media(max-width:768px){
-  .hero-doors{height:100svh}
+  .hero-doors{height:calc(100svh - 72px);margin-top:72px}
   .door-left,.door-right{width:100%;height:50%}
   .door-left{top:0}
   .door-right{top:50%}
