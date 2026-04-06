@@ -1,13 +1,24 @@
 'use client'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
+import { useEffect, useState } from 'react'
 
 export default function NavMemphis() {
   const path = usePathname()
   const isHome = path === '/'
+  const [scrolled, setScrolled] = useState(false)
+
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 60)
+    onScroll()
+    window.addEventListener('scroll', onScroll, { passive: true })
+    return () => window.removeEventListener('scroll', onScroll)
+  }, [])
+
+  const solid = !isHome || scrolled
 
   return (
-    <nav className={`nav-memphis${isHome ? '' : ' nav-solid'}`}>
+    <nav className={`nav-memphis${solid ? ' nav-solid' : ''}`}>
       <div className="nav-memphis-inner">
         <Link href="/" className="nav-memphis-logo">
           Pro<em>IA</em>

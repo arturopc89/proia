@@ -7,13 +7,15 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger'
 gsap.registerPlugin(ScrollTrigger)
 
 export default function HeroDoors() {
-  const heroRef     = useRef<HTMLDivElement>(null)
-  const doorLeftRef = useRef<HTMLDivElement>(null)
-  const doorRightRef= useRef<HTMLDivElement>(null)
-  const behindRef   = useRef<HTMLDivElement>(null)
-  const hintRef     = useRef<HTMLDivElement>(null)
+  const heroRef      = useRef<HTMLDivElement>(null)
+  const doorLeftRef  = useRef<HTMLDivElement>(null)
+  const doorRightRef = useRef<HTMLDivElement>(null)
+  const behindRef    = useRef<HTMLDivElement>(null)
+  const charRef      = useRef<HTMLImageElement>(null)
+  const hintRef      = useRef<HTMLDivElement>(null)
 
   useGSAP(() => {
+    // Main scrubbed timeline: doors open + behind content reveals
     const tl = gsap.timeline({
       scrollTrigger: {
         trigger: heroRef.current,
@@ -27,8 +29,11 @@ export default function HeroDoors() {
 
     tl.to(doorLeftRef.current,  { xPercent: -100, ease: 'power2.inOut', duration: 1 }, 0)
       .to(doorRightRef.current, { xPercent: 100,  ease: 'power2.inOut', duration: 1 }, 0)
-      .from(behindRef.current,  { opacity: 0, scale: 0.96, ease: 'power2.out', duration: 0.8 }, 0.1)
+      .from(behindRef.current,  { opacity: 0, scale: 0.97, ease: 'power2.out', duration: 0.8 }, 0.05)
+      // Character appears after behind content is visible (position 0.75 in timeline)
+      .from(charRef.current,    { opacity: 0, y: 64, ease: 'power3.out', duration: 0.55 }, 0.75)
 
+    // Fade scroll hint quickly
     gsap.to(hintRef.current, {
       opacity: 0,
       scrollTrigger: {
@@ -62,19 +67,40 @@ export default function HeroDoors() {
                 ))}
               </div>
             </div>
-            <div className="door-behind-photos">
-              <img src="/img/hero-alquiler.jpg" alt="Departamento moderno" />
-              <img src="/img/hero-propietario.jpg" alt="Edificio Asunción" />
+
+            {/* Videos: edificios + pareja */}
+            <div className="door-behind-videos">
+              <video
+                className="door-behind-video"
+                autoPlay muted loop playsInline
+                poster="/img/hero-propietario.jpg"
+              >
+                <source src="/video-edificios.mp4" type="video/mp4" />
+              </video>
+              <video
+                className="door-behind-video"
+                autoPlay muted loop playsInline
+                poster="https://images.unsplash.com/photo-1543610892-0b1f7e6d8ac1?w=600&q=80"
+              >
+                <source src="/video-pareja.mp4" type="video/mp4" />
+              </video>
             </div>
           </div>
         </div>
       </div>
 
+      {/* PERSONAJE — aparece con retardo via GSAP (screen blend elimina fondo negro) */}
+      <img
+        ref={charRef}
+        src="/personajes/hombre-llave.png"
+        alt="Asesor ProIA"
+        className="door-behind-char"
+      />
+
       {/* PUERTA IZQUIERDA — Quiero alquilar */}
       <div ref={doorLeftRef} className="door-panel door-left" onClick={() => window.location.href = '/alquiler-express'}>
         <img src="/img/hero-alquiler.jpg" alt="" className="door-bg-img" />
         <div className="door-overlay door-overlay-blue" />
-        <img src="/personajes/agente-mujer.png" alt="" className="door-character" />
         <div className="door-hover-line" />
         <div className="door-content">
           <div className="door-label">
@@ -97,7 +123,6 @@ export default function HeroDoors() {
       <div ref={doorRightRef} className="door-panel door-right" onClick={() => window.location.href = '/soy-propietario'}>
         <img src="/img/hero-propietario.jpg" alt="" className="door-bg-img" />
         <div className="door-overlay door-overlay-dark" />
-        <img src="/personajes/agente-hombre.png" alt="" className="door-character" />
         <div className="door-hover-line" />
         <div className="door-content">
           <div className="door-label">
