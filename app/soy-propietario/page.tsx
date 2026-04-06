@@ -84,7 +84,7 @@ export default function SoyPropietario() {
             </Link>
           </div>
           <div style={{ textAlign: 'center', marginTop: '48px' }}>
-            <Link href="/publicar" className="m-btn m-btn-orange" style={{ fontSize: '15px', padding: '16px 36px' }}>
+            <Link href="/publicar" className="m-btn m-btn-orange">
               Publicar propiedad gratis →
             </Link>
           </div>
