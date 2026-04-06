@@ -68,36 +68,35 @@ export default function HeroDoors() {
               </div>
             </div>
 
-            {/* Videos + personaje abajo */}
-            <div className="door-behind-right">
-              <div className="door-behind-videos">
-                <video
-                  className="door-behind-video"
-                  autoPlay muted loop playsInline
-                  poster="/img/hero-propietario.jpg"
-                >
-                  <source src="/video-edificios.mp4" type="video/mp4" />
-                </video>
-                <video
-                  className="door-behind-video"
-                  autoPlay muted loop playsInline
-                  poster="https://images.unsplash.com/photo-1543610892-0b1f7e6d8ac1?w=600&q=80"
-                >
-                  <source src="/video-pareja.mp4" type="video/mp4" />
-                </video>
-              </div>
-              {/* PERSONAJE — debajo de los videos, screen blend elimina fondo negro */}
-              <div className="door-behind-char-wrap">
-                <img
-                  ref={charRef}
-                  src="/personajes/hombre-llave.png"
-                  alt="Asesor ProIA"
-                  className="door-behind-char"
-                />
-              </div>
+            {/* Videos: edificios + pareja */}
+            <div className="door-behind-videos">
+              <video
+                className="door-behind-video"
+                autoPlay muted loop playsInline
+                poster="/img/hero-propietario.jpg"
+              >
+                <source src="/video-edificios.mp4" type="video/mp4" />
+              </video>
+              <video
+                className="door-behind-video"
+                autoPlay muted loop playsInline
+                poster="https://images.unsplash.com/photo-1543610892-0b1f7e6d8ac1?w=600&q=80"
+              >
+                <source src="/video-pareja.mp4" type="video/mp4" />
+              </video>
             </div>
           </div>
         </div>
+      </div>
+
+      {/* PERSONAJE — fondo de la sección, gradiente oscuro lo ancla al piso */}
+      <div className="door-behind-char-wrap">
+        <img
+          ref={charRef}
+          src="/personajes/hombre-llave.png"
+          alt="Asesor ProIA"
+          className="door-behind-char"
+        />
       </div>
 
       {/* PUERTA IZQUIERDA — Quiero alquilar */}

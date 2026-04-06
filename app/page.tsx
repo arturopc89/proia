@@ -1,4 +1,5 @@
 'use client'
+import { useEffect } from 'react'
 import dynamic from 'next/dynamic'
 import Link from 'next/link'
 import Icon from '@/components/Icon'
@@ -6,6 +7,16 @@ import Icon from '@/components/Icon'
 const HeroDoors = dynamic(() => import('@/components/HeroDoors'), { ssr: false })
 
 export default function Home() {
+  useEffect(() => {
+    const frames = document.querySelectorAll('.m-photo-frame')
+    const obs = new IntersectionObserver(
+      (entries) => entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('char-visible'); obs.unobserve(e.target) } }),
+      { threshold: 0.3 }
+    )
+    frames.forEach(f => obs.observe(f))
+    return () => obs.disconnect()
+  }, [])
+
   return (
     <>
       {/* ── HERO PUERTAS ── */}
