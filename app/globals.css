@@ -986,8 +986,8 @@ footer{background:var(--blue-950);padding:44px 0 28px;border-top:1px solid rgba(
 .door-behind-video{width:100%;height:100%;object-fit:cover;border-radius:16px;display:block}
 
 /* ── Character at bottom-right of section, gradient anchors him to the floor ── */
-.door-behind-char-wrap{position:absolute;bottom:0;right:8%;width:220px;height:380px;background:linear-gradient(to bottom,transparent 0%,rgba(13,13,13,.4) 50%,#0d0d0d 80%);display:flex;justify-content:center;align-items:flex-end;z-index:10;pointer-events:none;overflow:hidden}
-.door-behind-char{height:90%;width:auto;object-fit:contain;object-position:center bottom;mix-blend-mode:screen;display:block}
+.door-behind-char-wrap{position:absolute;bottom:0;right:8%;width:220px;height:380px;display:flex;justify-content:center;align-items:flex-end;z-index:10;pointer-events:none}
+.door-behind-char{height:90%;width:auto;object-fit:contain;object-position:center bottom;mix-blend-mode:screen;display:block;filter:drop-shadow(0 8px 24px rgba(0,0,0,.35))}
 
 /* ── Memphis mobile ── */
 @media(max-width:768px){
