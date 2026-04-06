@@ -810,8 +810,8 @@ footer{background:var(--blue-950);padding:44px 0 28px;border-top:1px solid rgba(
 .nav-shadowed{box-shadow:0 2px 20px rgba(0,0,0,.08)}
 .nav-white{}
 .nav-memphis-inner{max-width:1200px;margin:0 auto;padding:0 40px;height:100%;display:flex;align-items:center;justify-content:space-between}
-.nav-memphis-logo{font-size:26px;font-weight:900;color:var(--m-blue);letter-spacing:-1px;text-decoration:none}
-.nav-memphis-logo em{font-style:normal;color:var(--orange)}
+.nav-memphis-logo{text-decoration:none;display:flex;align-items:center}
+.nav-memphis-logo-img{height:40px;width:auto;display:block}
 .nav-memphis-links{display:flex;gap:4px}
 .nav-memphis-link{padding:7px 14px;border-radius:8px;font-size:13.5px;font-weight:500;color:var(--gray-600);text-decoration:none;transition:all .18s}
 .nav-memphis-link:hover{background:var(--gray-100);color:var(--m-black)}
