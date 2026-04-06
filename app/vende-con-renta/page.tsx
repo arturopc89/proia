@@ -80,7 +80,7 @@ export default function VendeConRenta() {
           <div className="m-two-col-rev">
             <div className="m-photo-frame">
               <img src="https://images.unsplash.com/photo-1493809842364-78817add7ffb?w=800&q=80" alt="Propiedad en venta con renta" className="m-photo-bg" />
-              <img src="/personajes/agente-hombre.png" alt="" className="m-photo-char" />
+              <img src="/personajes/agente-suit.png" alt="" className="m-photo-char" />
               <div className="m-photo-badge">+12% precio promedio</div>
             </div>
             <div>

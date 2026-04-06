@@ -24,9 +24,6 @@
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
 body{font-family:'Plus Jakarta Sans',sans-serif;background:#fff;color:var(--gray-900);overflow-x:hidden;-webkit-font-smoothing:antialiased}
-body{cursor:none}
-#cur{width:8px;height:8px;background:var(--blue-500);border-radius:50%;position:fixed;top:0;left:0;pointer-events:none;z-index:9999;transition:transform .12s}
-#cur-r{width:30px;height:30px;border:1.5px solid var(--blue-400);border-radius:50%;position:fixed;top:0;left:0;pointer-events:none;z-index:9998;transition:all .28s cubic-bezier(.22,1,.36,1);opacity:.55}
 
 /* LOADER */
 #loader{position:fixed;inset:0;background:#fff;z-index:10000;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:24px;transition:opacity .7s,visibility .7s}
@@ -652,7 +649,7 @@ footer{background:var(--blue-950);padding:44px 0 28px;border-top:1px solid rgba(
 .pub-stat-label{font-size:11px;color:var(--gray-400);margin-top:2px;display:block}
 
 /* ── ONBOARDING LAYOUT ── */
-.ob-header{position:sticky;top:66px;z-index:100;background:rgba(255,255,255,.95);backdrop-filter:blur(12px);border-bottom:1px solid var(--gray-100);padding:14px 0}
+.ob-header{position:sticky;top:72px;z-index:100;background:rgba(255,255,255,.95);backdrop-filter:blur(12px);border-bottom:1px solid var(--gray-100);padding:14px 0;margin-top:72px}
 .ob-header-inner{max-width:var(--max);margin:0 auto;padding:0 24px;display:flex;align-items:center;gap:24px}
 .ob-progress-wrap{flex:1;display:flex;align-items:center;gap:0}
 .ob-step-prog{display:flex;align-items:center;gap:0;flex:1;position:relative}
@@ -754,7 +751,9 @@ footer{background:var(--blue-950);padding:44px 0 28px;border-top:1px solid rgba(
 .ob-check-sub{font-size:11px;color:var(--gray-400);margin-top:1px}
 
 /* ── TIP ── */
-.ob-tip{background:var(--blue-50);border:1px solid var(--blue-100);border-radius:10px;padding:12px 14px;display:flex;align-items:flex-start;gap:10px;font-size:12px;color:var(--blue-700);line-height:1.6;margin-bottom:20px}
+.ob-tip{background:var(--m-blue-light);border:1px solid rgba(5,70,132,.12);border-radius:10px;padding:12px 14px;display:flex;align-items:flex-start;gap:10px;font-size:12px;color:var(--m-blue);line-height:1.6;margin-bottom:20px}
+.ob-tip-icon{flex-shrink:0;display:flex;align-items:center;justify-content:center;margin-top:1px}
+.ob-amenity-ic{display:flex;align-items:center;flex-shrink:0}
 
 /* ── BOTTOM NAV ── */
 .ob-nav{display:flex;justify-content:space-between;align-items:center;padding-top:20px;margin-top:4px;border-top:1px solid var(--gray-100)}
@@ -806,29 +805,21 @@ footer{background:var(--blue-950);padding:44px 0 28px;border-top:1px solid rgba(
 .m-em{font-family:'Instrument Serif',serif;font-weight:400;font-style:italic;color:var(--orange)}
 .m-em-blue{font-family:'Instrument Serif',serif;font-weight:400;font-style:italic;color:var(--m-blue)}
 
-/* ── Nav Memphis ── */
-.nav-memphis{position:fixed;top:0;left:0;right:0;z-index:200;height:72px;mix-blend-mode:difference}
+/* ── Nav Memphis — white clean ── */
+.nav-memphis{position:fixed;top:0;left:0;right:0;z-index:200;height:72px;background:#fff;border-bottom:1px solid rgba(0,0,0,.07);transition:box-shadow .25s}
+.nav-shadowed{box-shadow:0 2px 20px rgba(0,0,0,.08)}
+.nav-white{}
 .nav-memphis-inner{max-width:1200px;margin:0 auto;padding:0 40px;height:100%;display:flex;align-items:center;justify-content:space-between}
-.nav-memphis-logo{font-size:26px;font-weight:900;color:#fff;letter-spacing:-1px;text-decoration:none}
+.nav-memphis-logo{font-size:26px;font-weight:900;color:var(--m-blue);letter-spacing:-1px;text-decoration:none}
 .nav-memphis-logo em{font-style:normal;color:var(--orange)}
 .nav-memphis-links{display:flex;gap:4px}
-.nav-memphis-link{padding:7px 14px;border-radius:8px;font-size:13.5px;font-weight:500;color:#fff;text-decoration:none;transition:background .18s;opacity:.75}
-.nav-memphis-link:hover{background:rgba(255,255,255,.12);opacity:1}
+.nav-memphis-link{padding:7px 14px;border-radius:8px;font-size:13.5px;font-weight:500;color:var(--gray-600);text-decoration:none;transition:all .18s}
+.nav-memphis-link:hover{background:var(--gray-100);color:var(--m-black)}
 .nav-memphis-end{display:flex;gap:10px;align-items:center}
-.nav-m-ghost{padding:10px 20px;border-radius:9px;border:1px solid rgba(255,255,255,.25);font-size:13.5px;font-weight:600;color:#fff;text-decoration:none;transition:background .2s}
-.nav-m-ghost:hover{background:rgba(255,255,255,.1)}
-.nav-m-cta{padding:10px 20px;border-radius:9px;background:var(--orange);font-size:13.5px;font-weight:700;color:#fff;text-decoration:none;transition:background .2s}
-.nav-m-cta:hover{background:var(--orange-dark)}
-
-/* ── NAV SOLID (páginas internas + scroll) ── */
-.nav-memphis{transition:background .3s,box-shadow .3s}
-.nav-solid{mix-blend-mode:normal;background:var(--m-blue);box-shadow:0 1px 0 rgba(255,255,255,.08)}
-.nav-solid .nav-memphis-logo,.nav-solid .nav-memphis-link,.nav-solid .nav-m-ghost{color:#fff}
-/* Home transparent state: always white text on top of dark doors */
-.nav-memphis:not(.nav-solid) .nav-memphis-logo,
-.nav-memphis:not(.nav-solid) .nav-memphis-link,
-.nav-memphis:not(.nav-solid) .nav-m-ghost,
-.nav-memphis:not(.nav-solid) .nav-m-cta{color:#fff}
+.nav-m-ghost{padding:9px 18px;border-radius:9px;border:1.5px solid var(--gray-200);font-size:13.5px;font-weight:600;color:var(--gray-700);text-decoration:none;transition:all .2s;background:#fff}
+.nav-m-ghost:hover{border-color:var(--m-blue);color:var(--m-blue)}
+.nav-m-cta{padding:10px 20px;border-radius:9px;background:var(--m-blue);font-size:13.5px;font-weight:700;color:#fff;text-decoration:none;transition:background .2s}
+.nav-m-cta:hover{background:var(--m-blue-dark)}
 
 /* ════════════════════════════════════════
    HERO DOORS
@@ -1002,9 +993,7 @@ footer{background:var(--blue-950);padding:44px 0 28px;border-top:1px solid rgba(
   .m-stats-strip{grid-template-columns:1fr 1fr}
   .m-strip-stat+.m-strip-stat{border-left:none}
   .m-stats-strip .m-strip-stat:nth-child(odd){border-right:1px solid #EDEBE7}
-  .nav-memphis{mix-blend-mode:normal;background:var(--m-blue)}
   .nav-memphis-links,.nav-m-ghost{display:none}
-  .nav-memphis-logo em{color:var(--orange)}
   .m-inner-hero-grid{grid-template-columns:1fr}
   .m-inner-char{height:200px}
   .m-prop-grid{grid-template-columns:1fr}
@@ -1012,3 +1001,43 @@ footer{background:var(--blue-950);padding:44px 0 28px;border-top:1px solid rgba(
   .m-cta-banner{padding:40px 28px}
   .m-inner-stats{gap:20px}
 }
+
+/* ── agente-suit: white bg PNG → multiply removes it ── */
+.m-photo-char[src*="agente-suit"]{mix-blend-mode:multiply}
+
+/* ── Floating Chat ── */
+.fc-wrap{position:fixed;bottom:28px;right:28px;z-index:500;display:flex;flex-direction:column;align-items:flex-end;gap:12px}
+.fc-btn{width:56px;height:56px;border-radius:50%;background:var(--m-blue);border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;color:#fff;box-shadow:0 4px 20px rgba(5,70,132,.35);transition:transform .2s,box-shadow .2s}
+.fc-btn:hover{transform:scale(1.08);box-shadow:0 8px 32px rgba(5,70,132,.45)}
+.fc-btn-open{background:var(--m-black)}
+.fc-panel{width:360px;background:#fff;border-radius:20px;box-shadow:0 20px 60px rgba(0,0,0,.14);display:flex;flex-direction:column;overflow:hidden;max-height:520px;animation:fcSlide .25s ease-out}
+@keyframes fcSlide{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:none}}
+.fc-head{background:var(--m-blue);padding:16px 20px;display:flex;align-items:center;justify-content:space-between}
+.fc-head-info{display:flex;align-items:center;gap:12px}
+.fc-avatar{width:36px;height:36px;border-radius:50%;background:rgba(255,255,255,.2);display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:800;color:#fff}
+.fc-name{font-size:14px;font-weight:800;color:#fff}
+.fc-status{font-size:11px;color:rgba(255,255,255,.6)}
+.fc-close{background:none;border:none;color:rgba(255,255,255,.7);cursor:pointer;font-size:16px;padding:4px}
+.fc-messages{flex:1;overflow-y:auto;padding:16px;display:flex;flex-direction:column;gap:10px;min-height:200px}
+.fc-welcome{}
+.fc-welcome-msg{background:var(--m-blue-light);color:var(--m-blue);font-size:13px;line-height:1.65;padding:12px 14px;border-radius:12px;margin-bottom:10px}
+.fc-suggestions{display:flex;flex-direction:column;gap:6px}
+.fc-suggest{background:#fff;border:1.5px solid var(--gray-200);border-radius:10px;padding:8px 12px;font-size:12px;font-weight:600;color:var(--m-black);cursor:pointer;text-align:left;transition:border-color .15s}
+.fc-suggest:hover{border-color:var(--m-blue);color:var(--m-blue)}
+.fc-msg{display:flex;align-items:flex-end;gap:8px}
+.fc-msg.user{flex-direction:row-reverse}
+.fc-msg-avatar{width:28px;height:28px;border-radius:50%;background:var(--m-blue);color:#fff;font-size:10px;font-weight:800;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.fc-bubble{max-width:240px;padding:10px 14px;border-radius:14px;font-size:13px;line-height:1.6;background:var(--m-blue-light);color:var(--m-black)}
+.fc-msg.user .fc-bubble{background:var(--m-blue);color:#fff;border-radius:14px 14px 4px 14px}
+.fc-msg.assistant .fc-bubble{border-radius:4px 14px 14px 14px}
+.fc-typing{display:flex;gap:4px;align-items:center;padding:12px 16px}
+.fc-typing span{width:6px;height:6px;border-radius:50%;background:var(--m-blue);animation:fcDot 1.2s infinite ease-in-out}
+.fc-typing span:nth-child(2){animation-delay:.2s}
+.fc-typing span:nth-child(3){animation-delay:.4s}
+@keyframes fcDot{0%,80%,100%{transform:scale(.6);opacity:.4}40%{transform:scale(1);opacity:1}}
+.fc-input-row{padding:12px;border-top:1px solid var(--gray-100);display:flex;gap:8px}
+.fc-input{flex:1;padding:10px 14px;border:1.5px solid var(--gray-200);border-radius:10px;font-size:13px;outline:none;font-family:inherit;transition:border-color .15s}
+.fc-input:focus{border-color:var(--m-blue)}
+.fc-send{width:38px;height:38px;border-radius:10px;background:var(--m-blue);border:none;color:#fff;display:flex;align-items:center;justify-content:center;cursor:pointer;flex-shrink:0;transition:background .15s}
+.fc-send:disabled{background:var(--gray-200);cursor:not-allowed}
+.fc-send:not(:disabled):hover{background:var(--m-blue-dark)}

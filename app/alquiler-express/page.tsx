@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react'
 import Link from 'next/link'
 import dynamic from 'next/dynamic'
 import Icon from '@/components/Icon'
+import { PROPIEDADES } from '@/lib/propiedades'
 
 const Tour3D = dynamic(() => import('@/components/Tour3D'), { ssr: false })
 
@@ -142,24 +143,22 @@ export default function AlquilerExpress() {
             </h2>
           </div>
           <div className="m-prop-grid">
-            {[
-              { img: 'https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?w=500&q=80', zona: 'Villa Morra, Asunción', precio: '$1,200/mes', desc: '3 dorm · 2 baños · 95m²' },
-              { img: 'https://images.unsplash.com/photo-1493809842364-78817add7ffb?w=500&q=80', zona: 'Mcal. López, Asunción', precio: '$1,850/mes', desc: '4 dorm · 3 baños · 130m²' },
-              { img: 'https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?w=500&q=80', zona: 'Recoleta, Asunción', precio: '$850/mes', desc: '2 dorm · 1 baño · 65m²' }
-            ].map((p, i) => (
-              <div key={i} style={{ borderRadius: '20px', overflow: 'hidden', background: '#fff', border: '1px solid rgba(0,0,0,.06)', transition: 'transform .25s', cursor: 'pointer' }}
-                onMouseEnter={e => (e.currentTarget.style.transform = 'translateY(-6px)')}
-                onMouseLeave={e => (e.currentTarget.style.transform = '')}>
-                <div style={{ height: '200px', overflow: 'hidden' }}>
-                  <img src={p.img} alt={p.zona} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+            {PROPIEDADES.map(p => (
+              <Link key={p.id} href={`/propiedades/${p.id}`} style={{ textDecoration: 'none' }}>
+                <div style={{ borderRadius: '20px', overflow: 'hidden', background: '#fff', border: '1px solid rgba(0,0,0,.06)', transition: 'transform .25s', cursor: 'pointer' }}
+                  onMouseEnter={e => (e.currentTarget.style.transform = 'translateY(-6px)')}
+                  onMouseLeave={e => (e.currentTarget.style.transform = '')}>
+                  <div style={{ height: '200px', overflow: 'hidden' }}>
+                    <img src={p.img} alt={p.zona} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+                  </div>
+                  <div style={{ padding: '20px' }}>
+                    <div style={{ fontSize: '11px', color: '#999', marginBottom: '6px' }}>📍 {p.zona}, {p.ciudad}</div>
+                    <div style={{ fontSize: '18px', fontWeight: 900, color: 'var(--m-black)', marginBottom: '4px' }}>${p.precio.toLocaleString()}/mes</div>
+                    <div style={{ fontSize: '13px', color: '#666', marginBottom: '12px' }}>{p.dormitorios} dorm · {p.banos} baños · {p.metros}m²</div>
+                    <span style={{ fontSize: '11px', fontWeight: 700, color: 'var(--orange)', background: 'rgba(241,127,6,.08)', padding: '4px 10px', borderRadius: '100px' }}>Disponible · Sin depósito</span>
+                  </div>
                 </div>
-                <div style={{ padding: '20px' }}>
-                  <div style={{ fontSize: '11px', color: '#999', marginBottom: '6px' }}>📍 {p.zona}</div>
-                  <div style={{ fontSize: '18px', fontWeight: 900, color: 'var(--m-black)', marginBottom: '4px' }}>{p.precio}</div>
-                  <div style={{ fontSize: '13px', color: '#666', marginBottom: '12px' }}>{p.desc}</div>
-                  <span style={{ fontSize: '11px', fontWeight: 700, color: 'var(--orange)', background: 'rgba(241,127,6,.08)', padding: '4px 10px', borderRadius: '100px' }}>Disponible · Sin depósito</span>
-                </div>
-              </div>
+              </Link>
             ))}
           </div>
         </div>
