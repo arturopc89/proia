@@ -1,6 +1,7 @@
 'use client'
 import { useEffect } from 'react'
 import Link from 'next/link'
+import Icon from '@/components/Icon'
 
 export default function AlquilaSeguro() {
   useEffect(() => {
@@ -13,25 +14,22 @@ export default function AlquilaSeguro() {
       {/* HERO */}
       <div className="m-inner-hero m-inner-hero-blue" style={{ paddingTop: '140px' }}>
         <div className="m-box">
-          <div className="m-inner-hero-grid">
-            <div className="m-inner-text">
-              <p className="m-eyebrow">Para propietarios</p>
-              <h1>Alquila<br /><em className="door-em">seguro</em></h1>
-              <p>Publicá tu propiedad y olvidate. ProIA gestiona todo y te garantiza el cobro aunque el inquilino no pague.</p>
-              <div className="m-inner-stats">
-                {[['100%','Cobro garantizado'],['$0','Costo inicial'],['11d','Para encontrar inquilino']].map(([v,l]) => (
-                  <div key={l}>
-                    <div className="m-inner-stat-val">{v}</div>
-                    <div className="m-inner-stat-lbl">{l}</div>
-                  </div>
-                ))}
-              </div>
-              <div style={{ marginTop: '32px', display: 'flex', gap: '12px', flexWrap: 'wrap' }}>
-                <Link href="/publicar" className="m-btn m-btn-orange">Publicar mi propiedad →</Link>
-              </div>
+          <div style={{ maxWidth: '640px' }}>
+            <p className="m-eyebrow">Para propietarios</p>
+            <h1>Alquila<br /><em className="door-em">seguro</em></h1>
+            <p style={{ color: 'rgba(255,255,255,.7)', fontSize: '18px', lineHeight: 1.7, maxWidth: '480px', margin: '16px 0 32px' }}>
+              Publicá tu propiedad y olvidate. ProIA gestiona todo y te garantiza el cobro aunque el inquilino no pague.
+            </p>
+            <div className="m-inner-stats">
+              {[['100%','Cobro garantizado'],['$0','Costo inicial'],['11d','Para encontrar inquilino']].map(([v,l]) => (
+                <div key={l}>
+                  <div className="m-inner-stat-val">{v}</div>
+                  <div className="m-inner-stat-lbl">{l}</div>
+                </div>
+              ))}
             </div>
-            <div className="m-inner-char">
-              <img src="/personajes/agente-hombre.png" alt="Asesor ProIA" />
+            <div style={{ marginTop: '32px' }}>
+              <Link href="/publicar" className="m-btn m-btn-orange">Publicar mi propiedad →</Link>
             </div>
           </div>
         </div>
@@ -63,9 +61,9 @@ export default function AlquilaSeguro() {
                 ))}
               </div>
             </div>
-            <div className="m-char-wrap">
-              <img src="/personajes/pareja.png" alt="Propietarios felices" />
-              <div className="m-char-badge">11 días promedio para alquilar</div>
+            <div className="m-photo-frame">
+              <img src="https://images.unsplash.com/photo-1484154218962-a197022b5858?w=800&q=80" alt="Propiedad en alquiler" />
+              <div className="m-photo-badge">11 días promedio para alquilar</div>
             </div>
           </div>
         </div>
@@ -80,17 +78,17 @@ export default function AlquilaSeguro() {
               Tu inversión, <em className="m-em">protegida.</em>
             </h2>
           </div>
-          <div className="m-benefits" style={{ gridTemplateColumns: 'repeat(3,1fr)' }}>
-            {[
-              ['🛡️','Cobro garantizado','Si el inquilino no paga, ProIA paga. Sin vueltas.'],
-              ['🤖','Selección con IA','Analizamos solvencia, historial y comportamiento.'],
-              ['📄','Contratos digitales','Firma electrónica válida. Cero papeleo físico.'],
-              ['🔧','Gestión de reparaciones','Coordinamos mantenimiento sin que te ocupes.'],
-              ['📊','Dashboard en tiempo real','Ves todo desde tu teléfono: pagos, contratos, estado.'],
-              ['💬','Soporte 24/7','Un equipo real detrás cuando lo necesitás.'],
-            ].map(([ic, t, d]) => (
+          <div className="m-benefits">
+            {([
+              ['shield','Cobro garantizado','Si el inquilino no paga, ProIA paga. Sin vueltas.'],
+              ['cpu','Selección con IA','Analizamos solvencia, historial y comportamiento.'],
+              ['file','Contratos digitales','Firma electrónica válida. Cero papeleo físico.'],
+              ['wrench','Gestión de reparaciones','Coordinamos mantenimiento sin que te ocupes.'],
+              ['bar-chart','Dashboard en tiempo real','Ves todo desde tu teléfono: pagos, contratos, estado.'],
+              ['message','Soporte 24/7','Un equipo real detrás cuando lo necesitás.'],
+            ] as [string,string,string][]).map(([ic, t, d]) => (
               <div key={t} className="m-benefit m-benefit-dark">
-                <div className="m-benefit-icon">{ic}</div>
+                <div className="m-benefit-icon"><Icon name={ic} /></div>
                 <div className="m-benefit-title m-benefit-title-w">{t}</div>
                 <div className="m-benefit-desc m-benefit-desc-w">{d}</div>
               </div>

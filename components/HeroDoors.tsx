@@ -3,7 +3,6 @@ import { useRef } from 'react'
 import { useGSAP } from '@gsap/react'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
-import Link from 'next/link'
 
 gsap.registerPlugin(ScrollTrigger)
 
@@ -63,8 +62,9 @@ export default function HeroDoors() {
                 ))}
               </div>
             </div>
-            <div className="door-behind-img">
-              <img src="/personajes/pareja.png" alt="Inquilinos felices" />
+            <div className="door-behind-photos">
+              <img src="/img/hero-alquiler.jpg" alt="Departamento moderno" />
+              <img src="/img/hero-propietario.jpg" alt="Edificio Asunción" />
             </div>
           </div>
         </div>
@@ -74,7 +74,6 @@ export default function HeroDoors() {
       <div ref={doorLeftRef} className="door-panel door-left" onClick={() => window.location.href = '/alquiler-express'}>
         <img src="/img/hero-alquiler.jpg" alt="" className="door-bg-img" />
         <div className="door-overlay door-overlay-blue" />
-        <img src="/personajes/agente-mujer.png" alt="" className="door-character" />
         <div className="door-hover-line" />
         <div className="door-content">
           <div className="door-label">
@@ -97,7 +96,6 @@ export default function HeroDoors() {
       <div ref={doorRightRef} className="door-panel door-right" onClick={() => window.location.href = '/soy-propietario'}>
         <img src="/img/hero-propietario.jpg" alt="" className="door-bg-img" />
         <div className="door-overlay door-overlay-dark" />
-        <img src="/personajes/agente-hombre.png" alt="" className="door-character" />
         <div className="door-hover-line" />
         <div className="door-content">
           <div className="door-label">

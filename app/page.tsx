@@ -1,6 +1,7 @@
 'use client'
 import dynamic from 'next/dynamic'
 import Link from 'next/link'
+import Icon from '@/components/Icon'
 
 const HeroDoors = dynamic(() => import('@/components/HeroDoors'), { ssr: false })
 
@@ -44,9 +45,9 @@ export default function Home() {
                 <Link href="/compra-alquilando" className="m-btn m-btn-outline">Compra Alquilando</Link>
               </div>
             </div>
-            <div className="m-char-wrap">
-              <img src="/personajes/agente-mujer.png" alt="Asesora ProIA" />
-              <div className="m-char-badge">Sin depósito · Sin fiador · 24h</div>
+            <div className="m-photo-frame">
+              <img src="https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?w=800&q=80" alt="Apartamento moderno en Asunción" />
+              <div className="m-photo-badge">Sin depósito · Sin fiador · Aprobación 24h</div>
             </div>
           </div>
         </div>
@@ -56,28 +57,28 @@ export default function Home() {
       <section className="m-section-blue">
         <div className="m-box">
           <div className="m-two-col-rev">
-            <div className="m-char-wrap">
-              <img src="/personajes/agente-hombre.png" alt="Asesor ProIA" style={{ mixBlendMode: 'luminosity', opacity: 0.9 }} />
-              <div className="m-char-badge m-char-badge-dark">+340 propietarios activos</div>
+            <div className="m-photo-frame">
+              <img src="https://images.unsplash.com/photo-1493809842364-78817add7ffb?w=800&q=80" alt="Propiedad en Asunción" />
+              <div className="m-photo-badge">+340 propietarios activos</div>
             </div>
             <div>
               <p className="m-eyebrow">02 — Soy propietario</p>
               <div className="m-section-num m-section-num-w">02</div>
               <h2 style={{ fontSize: 'clamp(36px,4.5vw,62px)', fontWeight: 900, letterSpacing: '-2px', lineHeight: 1.0, color: '#fff', marginBottom: '24px' }}>
-                Alquilá seguro.<br/><em className="m-em">Cobrá siempre.</em>
+                Alquilá seguro.<br/><em className="m-em">Cobrás siempre.</em>
               </h2>
               <p style={{ fontSize: '16px', color: 'rgba(255,255,255,.55)', lineHeight: 1.7, maxWidth: '440px', marginBottom: '32px' }}>
                 ProIA gestiona todo por vos: inquilinos, contratos, cobros y mantenimiento. Si el inquilino no paga, vos sí cobrás.
               </p>
               <div className="m-benefits" style={{ gridTemplateColumns: 'repeat(2,1fr)' }}>
-                {[
-                  ['🛡️','Cobro garantizado','Aunque el inquilino no pague.'],
-                  ['📄','Contratos digitales','Firma electrónica en minutos.'],
-                  ['🤖','Selección IA','Los mejores perfiles, siempre.'],
-                  ['📊','Dashboard 24/7','Todo tu portfolio en un panel.'],
-                ].map(([ic, t, d]) => (
+                {([
+                  ['shield','Cobro garantizado','Aunque el inquilino no pague.'],
+                  ['file','Contratos digitales','Firma electrónica en minutos.'],
+                  ['cpu','Selección IA','Los mejores perfiles, siempre.'],
+                  ['bar-chart','Dashboard 24/7','Todo tu portfolio en un panel.'],
+                ] as [string,string,string][]).map(([ic, t, d]) => (
                   <div key={t} className="m-benefit m-benefit-dark">
-                    <div className="m-benefit-icon">{ic}</div>
+                    <div className="m-benefit-icon"><Icon name={ic} /></div>
                     <div className="m-benefit-title m-benefit-title-w">{t}</div>
                     <div className="m-benefit-desc m-benefit-desc-w">{d}</div>
                   </div>

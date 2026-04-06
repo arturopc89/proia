@@ -2,6 +2,7 @@
 import { useEffect, useState } from 'react'
 import Link from 'next/link'
 import dynamic from 'next/dynamic'
+import Icon from '@/components/Icon'
 
 const Tour3D = dynamic(() => import('@/components/Tour3D'), { ssr: false })
 
@@ -21,54 +22,29 @@ export default function AlquilerExpress() {
     return () => { document.body.style.cursor = '' }
   }, [])
 
-  useEffect(() => {
-    const obs = new IntersectionObserver(entries => {
-      entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('vis') })
-    }, { threshold: 0.06 })
-    document.querySelectorAll('.rev:not(.vis)').forEach(r => obs.observe(r))
-    return () => obs.disconnect()
-  }, [])
-
-  // Custom cursor
-  useEffect(() => {
-    const cur = document.getElementById('cur')
-    const curR = document.getElementById('cur-r')
-    if (!cur || !curR) return
-    const move = (e: MouseEvent) => {
-      cur.style.left = (e.clientX - 4) + 'px'
-      cur.style.top = (e.clientY - 4) + 'px'
-      curR.style.left = (e.clientX - 15) + 'px'
-      curR.style.top = (e.clientY - 15) + 'px'
-    }
-    document.addEventListener('mousemove', move)
-    return () => document.removeEventListener('mousemove', move)
-  }, [])
 
   return (
     <>
       {/* HERO */}
       <div className="m-inner-hero m-inner-hero-blue" style={{ paddingTop: '140px' }}>
         <div className="m-box">
-          <div className="m-inner-hero-grid">
-            <div className="m-inner-text">
-              <p className="m-eyebrow">Para inquilinos</p>
-              <h1>Alquilá sin<br /><em className="door-em">burocracia</em></h1>
-              <p>Sin depósito, sin fiador, sin comisión. La IA evalúa tu perfil en 24h y te conecta directo con el propietario.</p>
-              <div className="m-inner-stats">
-                {[['24h','Aprobación'],['$0','Depósito'],['98%','Cobros a tiempo']].map(([v,l]) => (
-                  <div key={l}>
-                    <div className="m-inner-stat-val">{v}</div>
-                    <div className="m-inner-stat-lbl">{l}</div>
-                  </div>
-                ))}
-              </div>
-              <div style={{ marginTop: '32px', display: 'flex', gap: '12px', flexWrap: 'wrap' }}>
-                <Link href="/compra-alquilando" className="m-btn m-btn-orange">Compra Alquilando →</Link>
-                <Link href="/soy-propietario" className="m-btn m-btn-outline">Soy propietario</Link>
-              </div>
+          <div style={{ maxWidth: '640px' }}>
+            <p className="m-eyebrow">Para inquilinos</p>
+            <h1>Alquilá sin<br /><em className="door-em">burocracia</em></h1>
+            <p style={{ color: 'rgba(255,255,255,.7)', fontSize: '18px', lineHeight: 1.7, maxWidth: '480px', margin: '16px 0 32px' }}>
+              Sin depósito, sin fiador, sin comisión. La IA evalúa tu perfil en 24h y te conecta directo con el propietario.
+            </p>
+            <div className="m-inner-stats">
+              {[['24h','Aprobación'],['$0','Depósito'],['98%','Cobros a tiempo']].map(([v,l]) => (
+                <div key={l}>
+                  <div className="m-inner-stat-val">{v}</div>
+                  <div className="m-inner-stat-lbl">{l}</div>
+                </div>
+              ))}
             </div>
-            <div className="m-inner-char">
-              <img src="/personajes/agente-mujer.png" alt="Asesora ProIA" />
+            <div style={{ marginTop: '32px', display: 'flex', gap: '12px', flexWrap: 'wrap' }}>
+              <Link href="/compra-alquilando" className="m-btn m-btn-orange">Compra Alquilando →</Link>
+              <Link href="/soy-propietario" className="m-btn m-btn-outline">Soy propietario</Link>
             </div>
           </div>
         </div>
@@ -100,9 +76,9 @@ export default function AlquilerExpress() {
                 ))}
               </div>
             </div>
-            <div className="m-char-wrap">
-              <img src="/personajes/agente-mujer.png" alt="Asesora ProIA" />
-              <div className="m-char-badge">Sin depósito · Sin fiador · 24h</div>
+            <div className="m-photo-frame">
+              <img src="https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?w=800&q=80" alt="Apartamento moderno" />
+              <div className="m-photo-badge">Sin depósito · Sin fiador · 24h</div>
             </div>
           </div>
         </div>
@@ -130,17 +106,17 @@ export default function AlquilerExpress() {
               Lo que cambia <em className="m-em">para siempre.</em>
             </h2>
           </div>
-          <div className="m-benefits" style={{ gridTemplateColumns: 'repeat(3,1fr)' }}>
-            {[
-              ['🚫','Sin depósito','No necesitás meses de garantía anticipada.'],
-              ['🤝','Sin fiador','La IA asume el riesgo crediticio.'],
-              ['💸','Sin comisión','El inquilino no paga comisión inmobiliaria.'],
-              ['⚡','Aprobación en 24h','Respuesta automática en menos de un día.'],
-              ['📱','100% Digital','Desde la búsqueda hasta el contrato.'],
-              ['🛡️','Cobro garantizado','El propietario cobra siempre, pase lo que pase.'],
-            ].map(([ic, t, d]) => (
+          <div className="m-benefits">
+            {([
+              ['ban','Sin depósito','No necesitás meses de garantía anticipada.'],
+              ['users','Sin fiador','La IA asume el riesgo crediticio.'],
+              ['tag','Sin comisión','El inquilino no paga comisión inmobiliaria.'],
+              ['zap','Aprobación en 24h','Respuesta automática en menos de un día.'],
+              ['smartphone','100% Digital','Desde la búsqueda hasta el contrato.'],
+              ['shield','Cobro garantizado','El propietario cobra siempre, pase lo que pase.'],
+            ] as [string,string,string][]).map(([ic, t, d]) => (
               <div key={t} className="m-benefit m-benefit-dark">
-                <div className="m-benefit-icon">{ic}</div>
+                <div className="m-benefit-icon"><Icon name={ic} /></div>
                 <div className="m-benefit-title m-benefit-title-w">{t}</div>
                 <div className="m-benefit-desc m-benefit-desc-w">{d}</div>
               </div>
@@ -158,7 +134,7 @@ export default function AlquilerExpress() {
               Tu próximo <em className="m-em">hogar.</em>
             </h2>
           </div>
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3,1fr)', gap: '20px' }}>
+          <div className="m-prop-grid">
             {[
               { img: 'https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?w=500&q=80', zona: 'Villa Morra, Asunción', precio: '$1,200/mes', desc: '3 dorm · 2 baños · 95m²' },
               { img: 'https://images.unsplash.com/photo-1493809842364-78817add7ffb?w=500&q=80', zona: 'Mcal. López, Asunción', precio: '$1,850/mes', desc: '4 dorm · 3 baños · 130m²' },
@@ -191,7 +167,7 @@ export default function AlquilerExpress() {
               Lo que dicen <em className="m-em">nuestros usuarios.</em>
             </h2>
           </div>
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3,1fr)', gap: '20px' }}>
+          <div className="m-testi-grid">
             {[
               { q: '"Me aprobaron en 19 horas. Sin fiador, sin depósito. Jamás imaginé que alquilar podía ser así de fácil."', name: 'Carlos M.', role: 'Inquilino · Villa Morra' },
               { q: '"Como propietaria, cobro el 1° de cada mes sin falta. ProIA asume el riesgo y yo me olvido."', name: 'Ana R.', role: 'Propietaria · 3 propiedades' },

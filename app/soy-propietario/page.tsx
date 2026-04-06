@@ -1,6 +1,7 @@
 'use client'
 import { useEffect } from 'react'
 import Link from 'next/link'
+import Icon from '@/components/Icon'
 
 export default function SoyPropietario() {
   useEffect(() => {
@@ -13,22 +14,19 @@ export default function SoyPropietario() {
       {/* HERO */}
       <div className="m-inner-hero m-inner-hero-blue" style={{ paddingTop: '140px' }}>
         <div className="m-box">
-          <div className="m-inner-hero-grid">
-            <div className="m-inner-text">
-              <p className="m-eyebrow">Propietarios</p>
-              <h1>Soy<br /><em className="door-em">propietario</em></h1>
-              <p>Elegí cómo querés hacer crecer tu inversión. ProIA gestiona todo, vos solo cobrás.</p>
-              <div className="m-inner-stats">
-                {[['$0','Costo inicial'],['100%','Cobro garantizado'],['+340','Propietarios activos']].map(([v,l]) => (
-                  <div key={l}>
-                    <div className="m-inner-stat-val">{v}</div>
-                    <div className="m-inner-stat-lbl">{l}</div>
-                  </div>
-                ))}
-              </div>
-            </div>
-            <div className="m-inner-char">
-              <img src="/personajes/agente-hombre.png" alt="Asesor ProIA" />
+          <div style={{ maxWidth: '640px' }}>
+            <p className="m-eyebrow">Propietarios</p>
+            <h1>Soy<br /><em className="door-em">propietario</em></h1>
+            <p style={{ color: 'rgba(255,255,255,.7)', fontSize: '18px', lineHeight: 1.7, maxWidth: '480px', margin: '16px 0 32px' }}>
+              Elegí cómo querés hacer crecer tu inversión. ProIA gestiona todo, vos solo cobrás.
+            </p>
+            <div className="m-inner-stats">
+              {[['$0','Costo inicial'],['100%','Cobro garantizado'],['+340','Propietarios activos']].map(([v,l]) => (
+                <div key={l}>
+                  <div className="m-inner-stat-val">{v}</div>
+                  <div className="m-inner-stat-lbl">{l}</div>
+                </div>
+              ))}
             </div>
           </div>
         </div>
@@ -49,7 +47,9 @@ export default function SoyPropietario() {
               <div style={{ background: 'var(--m-blue)', borderRadius: '24px', padding: '40px', color: '#fff', transition: 'transform .25s', cursor: 'pointer' }}
                    onMouseEnter={e => (e.currentTarget.style.transform = 'translateY(-6px)')}
                    onMouseLeave={e => (e.currentTarget.style.transform = '')}>
-                <div style={{ fontSize: '36px', marginBottom: '16px' }}>🔑</div>
+                <div style={{ width: 52, height: 52, borderRadius: 14, background: 'rgba(255,255,255,.12)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#fff', marginBottom: 20 }}>
+                  <Icon name="shield" size={26} />
+                </div>
                 <div style={{ fontSize: '22px', fontWeight: 900, letterSpacing: '-1px', marginBottom: '8px' }}>Alquila Seguro</div>
                 <p style={{ fontSize: '14px', color: 'rgba(255,255,255,.55)', lineHeight: 1.7, marginBottom: '24px' }}>
                   Publicá tu propiedad, ProIA se encarga de todo. Cobro garantizado aunque el inquilino no pague.
@@ -59,7 +59,7 @@ export default function SoyPropietario() {
                     <span key={t} style={{ fontSize: '11px', fontWeight: 600, color: 'rgba(255,255,255,.5)', border: '1px solid rgba(255,255,255,.15)', borderRadius: '100px', padding: '5px 12px' }}>{t}</span>
                   ))}
                 </div>
-                <span style={{ fontSize: '14px', fontWeight: 700, color: 'var(--orange)' }}>Ver Alquila Seguro →</span>
+                <span style={{ fontSize: '14px', fontWeight: 700, color: 'rgba(255,255,255,.9)' }}>Ver Alquila Seguro →</span>
               </div>
             </Link>
             {/* Vende con Renta */}
@@ -67,7 +67,9 @@ export default function SoyPropietario() {
               <div style={{ background: 'var(--m-black)', borderRadius: '24px', padding: '40px', color: '#fff', transition: 'transform .25s', cursor: 'pointer' }}
                    onMouseEnter={e => (e.currentTarget.style.transform = 'translateY(-6px)')}
                    onMouseLeave={e => (e.currentTarget.style.transform = '')}>
-                <div style={{ fontSize: '36px', marginBottom: '16px' }}>💎</div>
+                <div style={{ width: 52, height: 52, borderRadius: 14, background: 'rgba(241,127,6,.15)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'var(--orange)', marginBottom: 20 }}>
+                  <Icon name="trending-up" size={26} />
+                </div>
                 <div style={{ fontSize: '22px', fontWeight: 900, letterSpacing: '-1px', marginBottom: '8px' }}>Vende con Renta</div>
                 <p style={{ fontSize: '14px', color: 'rgba(255,255,255,.55)', lineHeight: 1.7, marginBottom: '24px' }}>
                   Vendé tu propiedad mientras seguís cobrando alquiler. Sin meses vacíos, con +12% de valor.

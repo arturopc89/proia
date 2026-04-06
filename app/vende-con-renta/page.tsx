@@ -1,6 +1,7 @@
 'use client'
 import { useEffect } from 'react'
 import Link from 'next/link'
+import Icon from '@/components/Icon'
 
 export default function VendeConRenta() {
   useEffect(() => {
@@ -13,32 +14,29 @@ export default function VendeConRenta() {
       {/* HERO */}
       <div className="m-inner-hero" style={{ paddingTop: '140px', background: 'var(--m-black)' }}>
         <div className="m-box">
-          <div className="m-inner-hero-grid">
-            <div className="m-inner-text">
-              <p className="m-eyebrow">Para propietarios</p>
-              <h1 style={{ color: '#fff' }}>Vende con<br /><em className="door-em">renta</em></h1>
-              <p style={{ color: 'rgba(255,255,255,.6)' }}>Vendé tu propiedad al mejor precio mientras seguís cobrando alquiler. Sin meses vacíos, sin perder ingresos.</p>
-              <div className="m-inner-stats">
-                {[['+12%','Precio vs. desocupada'],['$0','Meses sin ingreso'],['2x','Exposición en mercado']].map(([v,l]) => (
-                  <div key={l}>
-                    <div className="m-inner-stat-val">{v}</div>
-                    <div className="m-inner-stat-lbl" style={{ color: 'rgba(255,255,255,.4)' }}>{l}</div>
-                  </div>
-                ))}
-              </div>
-              <div style={{ marginTop: '32px', display: 'flex', gap: '12px', flexWrap: 'wrap' }}>
-                <Link href="/publicar" className="m-btn m-btn-orange">Publicar mi propiedad →</Link>
-                <a href="https://wa.me/595992900799" target="_blank" className="m-btn" style={{ background: 'rgba(255,255,255,.1)', color: '#fff', border: '1px solid rgba(255,255,255,.2)' }}>Hablar con agente</a>
-              </div>
+          <div style={{ maxWidth: '640px' }}>
+            <p className="m-eyebrow">Para propietarios</p>
+            <h1 style={{ color: '#fff' }}>Vende con<br /><em className="door-em">renta</em></h1>
+            <p style={{ color: 'rgba(255,255,255,.6)', fontSize: '18px', lineHeight: 1.7, maxWidth: '480px', margin: '16px 0 32px' }}>
+              Vendé tu propiedad al mejor precio mientras seguís cobrando alquiler. Sin meses vacíos, sin perder ingresos.
+            </p>
+            <div className="m-inner-stats">
+              {([['+12%','Precio vs. desocupada'],['$0','Meses sin ingreso'],['2x','Exposición en mercado']] as [string,string][]).map(([v,l]) => (
+                <div key={l}>
+                  <div className="m-inner-stat-val">{v}</div>
+                  <div className="m-inner-stat-lbl" style={{ color: 'rgba(255,255,255,.4)' }}>{l}</div>
+                </div>
+              ))}
             </div>
-            <div className="m-inner-char">
-              <img src="/personajes/agente-hombre.png" alt="Asesor ProIA" style={{ mixBlendMode: 'luminosity', opacity: 0.85 }} />
+            <div style={{ marginTop: '32px', display: 'flex', gap: '12px', flexWrap: 'wrap' }}>
+              <Link href="/publicar" className="m-btn m-btn-orange">Publicar mi propiedad →</Link>
+              <a href="https://wa.me/595992900799" target="_blank" className="m-btn" style={{ background: 'rgba(255,255,255,.1)', color: '#fff', border: '1px solid rgba(255,255,255,.2)' }}>Hablar con agente</a>
             </div>
           </div>
         </div>
       </div>
 
-      {/* POR QUÉ ES MEJOR */}
+      {/* COMPARATIVA */}
       <section className="m-section" style={{ padding: '80px 0' }}>
         <div className="m-box">
           <div style={{ textAlign: 'center', marginBottom: '56px' }}>
@@ -74,9 +72,9 @@ export default function VendeConRenta() {
       <section className="m-section-blue">
         <div className="m-box">
           <div className="m-two-col-rev">
-            <div className="m-char-wrap">
-              <img src="/personajes/pareja.png" alt="Inversores" />
-              <div className="m-char-badge m-char-badge-dark">+12% precio promedio</div>
+            <div className="m-photo-frame">
+              <img src="https://images.unsplash.com/photo-1493809842364-78817add7ffb?w=800&q=80" alt="Propiedad en venta con renta" />
+              <div className="m-photo-badge">+12% precio promedio</div>
             </div>
             <div>
               <p className="m-eyebrow">Proceso</p>
@@ -113,17 +111,17 @@ export default function VendeConRenta() {
               Ideal si <em className="m-em">querés vender</em> pero…
             </h2>
           </div>
-          <div className="m-benefits" style={{ gridTemplateColumns: 'repeat(3,1fr)' }}>
-            {[
-              ['⏳','No es urgente','Podés esperar el precio justo sin apuro. Mientras tanto, cobrás.'],
-              ['📉','No querés bajar el precio','Una propiedad con renta activa se negocia desde una posición de fuerza.'],
-              ['💸','Necesitás el flujo','No podés darte el lujo de meses sin ingresos mientras esperás comprador.'],
-              ['🏗️','Tenés varios inmuebles','Optimizá tu portfolio: vendé los que no querés, mantenés los que sí.'],
-              ['🌍','Vivís en el exterior','Gestionamos todo sin que tengas que volver. Cobrás y cerrás de forma remota.'],
-              ['🧮','Querés maximizar','Buscás el máximo retorno posible. Esta es la estrategia.'],
-            ].map(([ic, t, d]) => (
+          <div className="m-benefits">
+            {([
+              ['clock','No es urgente','Podés esperar el precio justo sin apuro. Mientras tanto, cobrás.'],
+              ['trending-up','No querés bajar el precio','Una propiedad con renta activa se negocia desde una posición de fuerza.'],
+              ['dollar','Necesitás el flujo','No podés darte el lujo de meses sin ingresos mientras esperás comprador.'],
+              ['bar-chart','Tenés varios inmuebles','Optimizá tu portfolio: vendé los que no querés, mantenés los que sí.'],
+              ['globe','Vivís en el exterior','Gestionamos todo sin que tengas que volver. Cobrás y cerrás de forma remota.'],
+              ['shield','Querés maximizar','Buscás el máximo retorno posible. Esta es la estrategia.'],
+            ] as [string,string,string][]).map(([ic, t, d]) => (
               <div key={t} className="m-benefit">
-                <div className="m-benefit-icon">{ic}</div>
+                <div className="m-benefit-icon"><Icon name={ic} /></div>
                 <div className="m-benefit-title">{t}</div>
                 <div className="m-benefit-desc">{d}</div>
               </div>

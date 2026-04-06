@@ -1,6 +1,7 @@
 'use client'
 import { useEffect } from 'react'
 import Link from 'next/link'
+import Icon from '@/components/Icon'
 
 export default function CompraAlquilando() {
   useEffect(() => {
@@ -13,31 +14,28 @@ export default function CompraAlquilando() {
       {/* HERO */}
       <div className="m-inner-hero m-inner-hero-blue" style={{ paddingTop: '140px' }}>
         <div className="m-box">
-          <div className="m-inner-hero-grid">
-            <div className="m-inner-text">
-              <p className="m-eyebrow">Para inquilinos</p>
-              <h1>Compra<br /><em className="door-em">alquilando</em></h1>
-              <p>Tu alquiler de hoy se convierte en la cuota de tu casa propia. Sin enganche, sin historial crediticio.</p>
-              <div className="m-inner-stats">
-                {[['$0','Enganche inicial'],['100%','Alquiler aplicado'],['5 años','Para decidir comprar']].map(([v,l]) => (
-                  <div key={l}>
-                    <div className="m-inner-stat-val">{v}</div>
-                    <div className="m-inner-stat-lbl">{l}</div>
-                  </div>
-                ))}
-              </div>
-              <div style={{ marginTop: '32px', display: 'flex', gap: '12px', flexWrap: 'wrap' }}>
-                <Link href="/alquiler-express" className="m-btn m-btn-orange">Ver propiedades →</Link>
-              </div>
+          <div style={{ maxWidth: '640px' }}>
+            <p className="m-eyebrow">Para inquilinos</p>
+            <h1>Compra<br /><em className="door-em">alquilando</em></h1>
+            <p style={{ color: 'rgba(255,255,255,.7)', fontSize: '18px', lineHeight: 1.7, maxWidth: '480px', margin: '16px 0 32px' }}>
+              Tu alquiler de hoy se convierte en la cuota de tu casa propia. Sin enganche, sin historial crediticio.
+            </p>
+            <div className="m-inner-stats">
+              {[['$0','Enganche inicial'],['100%','Alquiler aplicado'],['5 años','Para decidir comprar']].map(([v,l]) => (
+                <div key={l}>
+                  <div className="m-inner-stat-val">{v}</div>
+                  <div className="m-inner-stat-lbl">{l}</div>
+                </div>
+              ))}
             </div>
-            <div className="m-inner-char">
-              <img src="/personajes/agente-mujer.png" alt="Asesora ProIA" />
+            <div style={{ marginTop: '32px' }}>
+              <Link href="/alquiler-express" className="m-btn m-btn-orange">Ver propiedades →</Link>
             </div>
           </div>
         </div>
       </div>
 
-      {/* QUÉ ES */}
+      {/* CÓMO FUNCIONA */}
       <section className="m-section" style={{ padding: '80px 0' }}>
         <div className="m-box">
           <div className="m-two-col">
@@ -47,7 +45,7 @@ export default function CompraAlquilando() {
                 Alquilás hoy,<br /><em className="m-em">comprás mañana.</em>
               </h2>
               <p style={{ fontSize: '16px', color: '#666', lineHeight: 1.7, maxWidth: '440px', marginBottom: '32px' }}>
-                Vivís en la propiedad que querés comprar. Cada mes que pagás alquiler, esa plata se acumula como parte del precio de compra. Cuando estés listo, comprás con lo que ya pusiste.
+                Vivís en la propiedad que querés comprar. Cada mes que pagás alquiler, esa plata se acumula como parte del precio de compra.
               </p>
               <div className="m-steps">
                 {[
@@ -66,9 +64,9 @@ export default function CompraAlquilando() {
                 ))}
               </div>
             </div>
-            <div className="m-char-wrap">
-              <img src="/personajes/pareja.png" alt="Pareja comprando" />
-              <div className="m-char-badge">Tu alquiler ya es tuyo</div>
+            <div className="m-photo-frame">
+              <img src="https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?w=800&q=80" alt="Apartamento moderno" />
+              <div className="m-photo-badge">Tu alquiler ya es tuyo</div>
             </div>
           </div>
         </div>
@@ -83,17 +81,17 @@ export default function CompraAlquilando() {
               La forma más <em className="m-em">inteligente</em> de comprar.
             </h2>
           </div>
-          <div className="m-benefits" style={{ gridTemplateColumns: 'repeat(3,1fr)' }}>
-            {[
-              ['🏠','Sin enganche','No necesitás ahorros previos para empezar a construir tu patrimonio.'],
-              ['📈','Precio fijado','El precio de compra se pacta al inicio. No importa si el mercado sube.'],
-              ['💰','Alquiler que no se pierde','Cada peso que pagás cuenta para la compra. No tirás plata.'],
-              ['📋','Sin historial crediticio','Evaluamos tu capacidad actual, no tu pasado bancario.'],
-              ['🔑','Vivís en la propiedad','Desde el primer día es tu hogar, aunque no sea tuyo todavía.'],
-              ['✅','Opción, no obligación','Si cambias de idea, podés no comprar. Solo perdés lo que acordaste.'],
-            ].map(([ic, t, d]) => (
+          <div className="m-benefits">
+            {([
+              ['home','Sin enganche','No necesitás ahorros previos para empezar a construir tu patrimonio.'],
+              ['trending-up','Precio fijado','El precio de compra se pacta al inicio. No importa si el mercado sube.'],
+              ['dollar','Alquiler que no se pierde','Cada peso que pagás cuenta para la compra. No tirás plata.'],
+              ['clipboard','Sin historial crediticio','Evaluamos tu capacidad actual, no tu pasado bancario.'],
+              ['key','Vivís en la propiedad','Desde el primer día es tu hogar, aunque no sea tuyo todavía.'],
+              ['check-circle','Opción, no obligación','Si cambias de idea, podés no comprar. Solo perdés lo que acordaste.'],
+            ] as [string,string,string][]).map(([ic, t, d]) => (
               <div key={t} className="m-benefit m-benefit-dark">
-                <div className="m-benefit-icon">{ic}</div>
+                <div className="m-benefit-icon"><Icon name={ic} /></div>
                 <div className="m-benefit-title m-benefit-title-w">{t}</div>
                 <div className="m-benefit-desc m-benefit-desc-w">{d}</div>
               </div>
