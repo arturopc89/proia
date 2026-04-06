@@ -7,13 +7,14 @@ import FloatingChat from '@/components/FloatingChat'
 
 const plusJakarta = Plus_Jakarta_Sans({
   subsets: ['latin'],
-  weight: ['400', '500', '600', '700', '800', '900'],
+  weight: 'variable',
   variable: '--font-jakarta',
   display: 'swap',
 })
 
 const instrumentSerif = Instrument_Serif({
   subsets: ['latin'],
+  weight: '400',
   style: ['normal', 'italic'],
   variable: '--font-serif',
   display: 'swap',
